@@ -1,7 +1,91 @@
 \chapter{Title of the first chapter}
 
-An~example citation: \cite{Andel07}
+\begin{defn}[Simple random walk in $\mathbb{Z}$]\label{def01:1}
+  Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables with values in $\{ -1, +1\}$. That $\forall n \in \N$ satisfy $\pr(X_n=1)=p \in (0,1)$ and $\pr(X_n=-1)=1-p=q$. Let $S_0=0$ and $S_n=\suma[i][1][n]X_i$. We call the pair $\left(\{S_n\}_{n=0}^\pinf, p \right)$ \emph{Simple random walk in $\mathbb{Z}$}. In case that $p=q=\frac{1}{2}$ we call the pair $\left(\{S_n\}_{n=0}^\pinf, p \right)$ \emph{Symmetric simple random walk in $\mathbb{Z}$}.
+\end{defn}
+
+\begin{rem}
+  Very often we refer to $n$ as time, $X_i$ as i-th step and $S_n$ as position in time $n$. In simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards.
+\end{rem}
+
+\begin{defn}[Set of possible positions]
+  Let \rw be a random walk. We call the set $A_n=\{z \in \Z; \abs{z}\leq n, \frac{z+n}{2}\in \Z \}$ set of all possible positions of random walk \rw in time $n$.
+\end{defn}
+
+\begin{thm}[Probability of position $x$ in time $n$]
+  Let \rw be a random walk and $A_n$ its set of possible positions.
+  \[
+  \pr(S_n=x)=
+  \begin{cases}
+  \binom{n}{\frac{x+n}{2}}p^{\frac{n+x}{2}}q^{\frac{n-x}{2}} & \text{for $x \in A_n$ },\\
+  0, & \text{for $x \not\in A_n$}.
+  \end{cases}
+  \]
+\end{thm}
+\begin{proof}
+  Let us define new variables $r_i=\indikator{X_i=1}, l_i=\indikator{X_i=-1}, R_n=\suma r_i, L_n=\suma l_i$. $r_i$ can be interpreted as indicator wether i-th step was rightwards. Then $R_n$ is number of rightwards steps and $L_n$ is number of leftwards steps. We can easily see that $R_n+L_n=n$ and $R_n-L_n=S_n$. Therefore we get by adding these two equations $R_n=\frac{S_n+n}{2}.$
+
+  $r_i$ has alternative distribution with parameter $p$ (\textit{Alt(p)}). Therefore $R_n$ as a sum of \iid random variables with \textit{Alt(p)} has binomial distribution with parameters $n$ and $p$ (\textit{Bi(n,p)}). Therefore we get $\pr(R_n=x)=\binom{n}{\frac{x+n}{2}}p^{\frac{n+x}{2}}q^{\frac{n-x}{2}}$. Where we define $\binom{a}{x}\dosad 0$ for $a \in \N, x\in \R \setminus \N$, $x<0$, $x>n$. Therefore we get $\pr(S_n=x)=\pr\left( R_n=\frac{x+n}{2}\right)=  \binom{n}{\frac{x+n}{2}}p^{\frac{n+x}{2}}q^{\frac{n-x}{2}}.$
+\end{proof}
+
+
+
+\begin{lemma}[Spatial homogeneity]
+  $\pr(S_n=j|S_0=a)=\pr(S_n=j+b|S_0=a+b) \forall b \in \Z$
+\end{lemma}
+\begin{proof}
+  $\pr(S_n=j|S_0=a)=\pr \left(\suma X_i=j-a\right)=\pr \left(\suma X_i=(j+b)-(a+b)\right)=\pr(S_n=j+b|S_0=a+b).$
+\end{proof}
+
+\begin{lemma}[Temporal homogeneity]
+  $\pr(S_n=j|S_0=a)=\pr(S_{n+m}=j|S_m=a) \forall m \in \N$
+\end{lemma}
+\begin{proof}
+  $\pr(S_n=j|S_0=a)=\pr\left(\suma X_i=j-a \right)=\pr\left(\suma[i][m+1][m+n]X_i=j-a \right)=\pr(S_{n+m}=j|S_m=a).$
+\end{proof}
+
+\begin{lemma}[Markov property]
+  Let $n\geq m$ and $a_i \in \Z$. Then $\pr(S_n=j|S_0=a_0, S_1=a_1, \ldots, S_m=a_m)=\pr(S_n=j|S_m=a_m)$
+\end{lemma}
+\begin{proof}
+  Once $S_m$ is known, then distribution of $S_n$ depends only on steps $X_{m+1}, X_{m+2}, \ldots X_n$ and therefore cannot be dependent on any information concerning values $X_1, X_2, \ldots, X_m-1$ and accordingly $S_1, S_2, \ldots, S_m-1.$
+\end{proof}
+
+\begin{rem}
+  In symmetric random walk, everything can be counted by number of possible paths from point to point.
+\end{rem}
+
+\begin{defn}[Number of possible paths]
+  Let $N_n(a,b)$ be number of posssible paths of random walk \rw from point $(0,a)$ to point $(n,b)$ and $N_n^x(a,b)$ be number of possible paths from point $(0,a)$ to point $(n,b)$ that visit point $(z,x)$ for some $z \in \{0, \ldots n \}$.
+\end{defn}
+\begin{thm}\label{thm-num_of_paths}
+  Let $a,b \in \Z, n \in \N$ then $N_n(a,b)=\binom{n}{\frac{1}{2}(n+b-a)}.$
+\end{thm}
+\begin{proof}
+  Let us choose a path from $(0,a)$ to $(n,b)$ and let $\alpha$ be number of rightwards steps and $\beta$ be number of leftwards steps. Then $\alpha+\beta=n$ and $\alpha-\beta=b-a$. By adding these two equations we get that $\alpha=\frac{1}{2}(n+b-a)$. The number of possible paths is the number of ways of picking $\alpha$ rightwards steps from $n$ steps. Therefore we get $N_n(a,b)=\binom{n}{\alpha}=\binom{n}{\frac{1}{2}(n+b-a)}.$
+\end{proof}
+\begin{thm}[Reflection principle]
+  Let $a,b >0$, then $N_n^0(a,b)=N_n(-a,b)$.
+\end{thm}
+\begin{proof}
+  Each path from $(0,-a)$ to $(n,b)$ has to intersect $x$-axis at least once at some point. Let $k$ be the time of earlies intersection with $x$-axis. By reflexing the segment from $(0,-a)$ to $(k,0)$ in the $x$-axis, we get a path from point $(0,a)$ to $(n,b)$ which visits $0$ at point $k$. Because reflection is bijective operation, we get the correspondence between the collections of such paths.
+\end{proof}
+\begin{defn}[Return to origin]
+  Let $S_0=0$ \rw be a random walk. Then if $\exists k \in \N$ such that $S_k=0$ then we say that in $k$-th step occured return to origin.
+\end{defn}
+\begin{thm}[Ballot theorem]\label{thm-ballot}
+  Let $n,b \in N$
+  Number of paths from point $(0,0)$ to point $(n,b)$ which do not return to origin is equal to $\frac{b}{n}N_n(0,b)$
+\end{thm}
+\begin{proof}
+  Let us call $N$ the number of paths we are refering to.
+  Because the path ends at point $(n,b)$, the first step has to be rightwards. Therefore we now have $N=N_{n-1}(1,b)-N_{n-1}^0(1,b)=N_{n-1}(1,b)-N_{n-1}(-1,b)$. The last equation was aquired using Ballot theorem (\ref{thm-ballot}). We now have:\[
+    N_{n-1}(1,b)-N_{n-1}(-1,b)=\binom{n-1}{\frac{n}{2}+\frac{b}{2}-1}-\binom{n-1}{\frac{n}{2}+\frac{b}{2}}=\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2})!}-\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2})!(\frac{n}{2}-\frac{b}{2}-1)!}=\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2})(\frac{n}{2}-\frac{b}{2}-1)!}-\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2})(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2}-1)!}=\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2}-1)!}\left( \frac{1}{\frac{n}{2}-\frac{b}{2}}-\frac{1}{\frac{n}{2}+\frac{b}{2}}\right)=\frac{1}{n}\frac{n!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2}-1)!}\left( \frac{(\frac{n}{2}+\frac{b}{2}-\frac{n}{2}+\frac{b}{2})}{(\frac{n}{2}-\frac{b}{2})(\frac{n}{2}+\frac{b}{2}})\right)=\frac{b}{n}\frac{n!}{(\frac{n}{2}+\frac{b}{2})!(\frac{n}{2}-\frac{b}{2})!}=\frac{b}{n}\binom{n}{(\frac{n}{2}+\frac{b}{2})}=\frac{b}{n}N_n(0,b)
+  \]\end{proof}
+
+
 
 \section{Title of the first subchapter of the first chapter}
 
 \section{Title of the second subchapter of the first chapter}
+rem

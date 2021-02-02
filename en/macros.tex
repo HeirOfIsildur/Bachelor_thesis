@@ -84,4 +84,17 @@
 
 %%% Various table goodies
 \newcommand{\pulrad}[1]{\raisebox{1.5ex}[0pt]{#1}}
-\newcommand{\mc}[1]{\multicolumn{1}{c}{#1}}
+%%%%%%%%%%%%%%%\newcommand{\mc}[1]{\multicolumn{1}{c}{#1}}
+
+%%% Moje vlastní makra
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\pinf}{{+\infty}} %%%Plus nekonečno
+\newcommand{\lb}{{\left\{}}
+\newcommand{\rb}{{\right\}}}
+\newcommand{\dosad}{:=}
+\NewDocumentCommand {\suma} { O{i} O{1} O{n} } {\sum\limits_{#1=#2}^{#3}}
+\newcommand{\indikator}[1]{\mathbf{1}_{[#1]}}
+\newcommand{\cen}{\textbf{check english}}
+\newcommand{\rw}{$\left(\{S_n\}_{n=0}^\pinf, p \right)$}
+\newcommand{\iid}{independent and identically distributed}
