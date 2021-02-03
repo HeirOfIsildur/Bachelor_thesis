@@ -5,7 +5,7 @@
 \end{defn}
 
 \begin{rem}
-  Very often we refer to $n$ as time, $X_i$ as i-th step and $S_n$ as position in time $n$. In simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards.
+  Very often we refer to $n$ as time, $X_i$ as i-th step and $S_n$ as position in time $n$. In simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards. If not stated otherwise, we
 \end{rem}
 
 \begin{defn}[Set of possible positions]
@@ -64,11 +64,11 @@
 \begin{proof}
   Let us choose a path from $(0,a)$ to $(n,b)$ and let $\alpha$ be number of rightwards steps and $\beta$ be number of leftwards steps. Then $\alpha+\beta=n$ and $\alpha-\beta=b-a$. By adding these two equations we get that $\alpha=\frac{1}{2}(n+b-a)$. The number of possible paths is the number of ways of picking $\alpha$ rightwards steps from $n$ steps. Therefore we get $N_n(a,b)=\binom{n}{\alpha}=\binom{n}{\frac{1}{2}(n+b-a)}.$
 \end{proof}
-\begin{thm}[Reflection principle]
+\begin{thm}[Reflection principle]\label{thm-reflection}
   Let $a,b >0$, then $N_n^0(a,b)=N_n(-a,b)$.
 \end{thm}
 \begin{proof}
-  Each path from $(0,-a)$ to $(n,b)$ has to intersect $x$-axis at least once at some point. Let $k$ be the time of earlies intersection with $x$-axis. By reflexing the segment from $(0,-a)$ to $(k,0)$ in the $x$-axis, we get a path from point $(0,a)$ to $(n,b)$ which visits $0$ at point $k$. Because reflection is bijective operation, we get the correspondence between the collections of such paths.
+  Each path from $(0,-a)$ to $(n,b)$ has to intersect $x$-axis at least once at some point. Let $k$ be the time of earlies intersection with $x$-axis. By reflexing the segment from $(0,-a)$ to $(k,0)$ in the $x$-axis, we get a path from point $(0,a)$ to $(n,b)$ which visits $0$ at point $k$. Because reflection is bijective operation on sets of paths, we get the correspondence between the collections of such paths.
 \end{proof}
 \begin{defn}[Return to origin]
   Let $S_0=0$ \rw be a random walk. Then if $\exists k \in \N$ such that $S_k=0$ then we say that in $k$-th step occured return to origin.
@@ -79,10 +79,67 @@
 \end{thm}
 \begin{proof}
   Let us call $N$ the number of paths we are refering to.
-  Because the path ends at point $(n,b)$, the first step has to be rightwards. Therefore we now have $N=N_{n-1}(1,b)-N_{n-1}^0(1,b)=N_{n-1}(1,b)-N_{n-1}(-1,b)$. The last equation was aquired using Ballot theorem (\ref{thm-ballot}). We now have:\[
+  Because the path ends at point $(n,b)$, the first step has to be rightwards. Therefore we now have $N=N_{n-1}(1,b)-N_{n-1}^0(1,b)=N_{n-1}(1,b)-N_{n-1}(-1,b)$. The last equation was aquired using Ballot theorem (\ref{thm-reflection}). We now have:\[
     N_{n-1}(1,b)-N_{n-1}(-1,b)=\binom{n-1}{\frac{n}{2}+\frac{b}{2}-1}-\binom{n-1}{\frac{n}{2}+\frac{b}{2}}=\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2})!}-\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2})!(\frac{n}{2}-\frac{b}{2}-1)!}=\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2})(\frac{n}{2}-\frac{b}{2}-1)!}-\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2})(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2}-1)!}=\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2}-1)!}\left( \frac{1}{\frac{n}{2}-\frac{b}{2}}-\frac{1}{\frac{n}{2}+\frac{b}{2}}\right)=\frac{1}{n}\frac{n!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2}-1)!}\left( \frac{(\frac{n}{2}+\frac{b}{2}-\frac{n}{2}+\frac{b}{2})}{(\frac{n}{2}-\frac{b}{2})(\frac{n}{2}+\frac{b}{2}})\right)=\frac{b}{n}\frac{n!}{(\frac{n}{2}+\frac{b}{2})!(\frac{n}{2}-\frac{b}{2})!}=\frac{b}{n}\binom{n}{(\frac{n}{2}+\frac{b}{2})}=\frac{b}{n}N_n(0,b)
   \]\end{proof}
+\begin{defn}
+  $M_n=\max \{S_i, i\in \{0, 1, \ldots, n \} \}$
+\end{defn}
+\begin{thm}[Probability of maximum in time $n$]\label{thm-probability-of-maximum}
+  Let \rw be a random walk.
+  \[\pr(M_n\geq r, S_n=b)=
+    \begin{cases}
+    \pr(S_n=b) & \text{for $b \geq r$ },\\
+    \pr(S_n=2r-b)\left( \frac{q}{p}\right)^{r-b}, & \text{for $otherwise$}.
+    \end{cases}
+    \]
+\end{thm}
+\begin{proof}
+  Let us firstly consider the easier case in which $b \geq r$. Because we defined $M_n$ as $\max \{S_i, i\in \{0, 1, \ldots, n \} \}$ we get that $M_n \geq b \geq r$ therefore $[M_n \geq r] \subset [S_n=b]$ therefore we get $\pr(M_n\geq r, S_n=b)=
+  \pr(S_n=b)$.
+  Let $r\geq 1, b<r$. $N_n^r(0,b)$ stands for number of paths from point $(0,0)$ to point $(n,b)$ which reach up to $r$. Let $k \in \{ 0, 1, \ldots, n \}$ denote the first time we reach $r$. By reflection principle (\ref{thm-reflection}), we can reflex the segment from $(k,r)$ to $(n,b)$ in the axis:$y=r$. Therefore we now have path from $(0,0)$ to $(n,2r-b)$ and we get that $N_n^r(0,b)=N_n(0,2r-b)$. $\pr(S_n=b,M_n\geq r)=N_n^r(0,b)p^{\frac{n+b}{2}}q^{\frac{n-b}{2}}=N_n(0,2r-b)p^{\frac{n+(2r-b)}{2}}q^{\frac{n-(2r-b)}{2}}p^{\frac{n+b}{2}}q^{\frac{n-b}{2}}p^{b-r}q^{r-b}=\left( \frac{q}{p}\right)^{r-b}\pr(S_n=2r-b).$
+\end{proof}
 
+\begin{defn}[Walk rechang new maximum at particular time]
+  Let $b >0$. $f_b(n)$ denotes the probability that we reach new maximum $b$ at time $n$. $f_b(n)=\pr(M_{n-1}=S_{n-1}=b-1, S_n=b)$
+\end{defn}
+\begin{thm}[Probability of reaching new maximum $b$ in time $n$]
+  Let $b>0$ then $f_b(n)=\frac{b}{n}\pr(S_n=b).$
+\end{thm}
+\begin{proof}
+  $f_b=\pr(M_{n-1}=S_{n-1}=b-1, S_n=b)=p\pr(M_{n-1}=S_{n-1}=b-1)=p\left(\pr(M_{n-1}\geq b-1, S_{n-1}=b-1)-\pr(M_{n-1}\geq b, S_{n-1}=b-1) \right)=p\left(\pr(S_{n-1}=b-1)-\frac{q}{p}\pr(S_{n-1}=b+1)\right)=p\pr(S_{n-1}=b-1)-q \pr (S_{n-1}=b+1)=\binom{n-1}{\frac{n}{2}+\frac{b}{2}-1}p^{\frac{n}{2}+\frac{b}{2}}q^{\frac{n}{2}-\frac{b}{2}}-\binom{n-1}{\frac{n}{2}+\frac{b}{2}}p^{\frac{n}{2}+\frac{b}{2}}q^{\frac{n}{2}-\frac{b}{2}}=p^{\frac{n}{2}+\frac{b}{2}}q^{\frac{n}{2}-\frac{b}{2}}\left(\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2}-1)!(\frac{n}{2}-\frac{b}{2})!}-\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2})!(\frac{n}{2}-\frac{b}{2}-1)!} \right)=p^{\frac{n}{2}+\frac{b}{2}}q^{\frac{n}{2}-\frac{b}{2}}\left(\frac{(n-1)!}{(\frac{n}{2}+\frac{b}{2})!(\frac{n}{2}-\frac{b}{2})!}\right)\left(\frac{1}{\frac{n}{2}-\frac{b}{2}}-\frac{1}{\frac{n}{2}+\frac{b}{2}} \right)=p^{\frac{n}{2}+\frac{b}{2}}q^{\frac{n}{2}-\frac{b}{2}}\frac{b}{n}\left(\frac{n!}{(\frac{n}{2}+\frac{b}{2})!(\frac{n}{2}-\frac{b}{2})!} \right)=\frac{b}{n}p^{\frac{n}{2}+\frac{b}{2}}q^{\frac{n}{2}-\frac{b}{2}}\binom{n}{\frac{n}{2}+\frac{b}{2}}=\frac{b}{n}\pr(S_n=b).$
+  %druhá rovnost $\pr(X_n=1)=p$ 4. rovnost \ref{thm-probability-of-maximum}}
+\end{proof}
+\begin{thm}[XXXMean number of visits to $b$ before returning to origin in symmetric random walk]
+  Let \rw be a symmetric random walk. Mean number $\mu_b$ of visits of the walk to point $b$ before returning to origin is equal to 1.
+\end{thm}
+\begin{proof}
+  aa
+\end{proof}
+\begin{defn}[]
+  Let \rw be a random walk and $k \in \N$. Than $u_{2k}=\pr(S_{2k}=0)=\binom{2k}{k}2^{-2k}$ denotes the probability that in time $2k$ the walk returned to origin.
+
+  Let \rw be a random walk and $n,k \in \N, n\geq k$. And $\alpha_{2n}(2k)=u_{2k}u_{2(n-k)}.$
+\end{defn}
+\begin{lemma}[Approximation of nondecreasing function]\label{thm-nondecreasing}
+  Let $x \in R$, $\epsilon, \delta>0$ and $f$ be a nondecreasing function that is defined on $(x-\epsilon, x+\delta)$ and has primitive function on intervals $(x-\epsilon, \epsilon)$ and $(x,x+\delta).$ Then $\frac{1}{\epsilon}\int_limits_{x-\epsilon}^x f(y) dy\leq f(x)\leq \frac{1}{\delta}\int_limits_{x}^{x+\delta} f(y) dy$.
+\end{lemma}
+\begin{proof}
+  $f$ is nondecreasing therefore $\forall z \in (x-\epsilon, x): f(z)\leq f(x)$ and $\frac{1}{\epsilon}\int_limits_{x-\epsilon}^x f(y) dy\leq \frac{1}{\epsilon}\int_limits_{x-\epsilon}^x f(x) dy =f(x)$. Similarly $\forall w \in (x, x+\delta): f(w)\geq f(x)$ therefore $\frac{1}{\delta}\int_limits_{x}^{x+\delta} f(y) dy \geq \frac{1}{\delta}\int_limits_{x}^{x+\delta} f(x) dy=f(x).$
+\end{proof}
+\begin{lemma}[Stirling's approximation formula]
+  $n!\sim \left(\frac{n}{e}\right)^n}\sqrt{2\pi n}$ as $n \to \pinf$ which means that
+  $\lim_\limits_{n \to \pinf}\frac{n!}{\left(\frac{n}{e}\right)^n}\sqrt{2\pi n}=1$.
+\end{lemma}
+\begin{proof}%DK PICK 9.6.7.
+  Let $n \in \N$. \label{XXXAAA}$\log(n!)=\log(1)+\log(2)+\ldots +\log(n)$. $\log$ is a nondecreasing function that is defined and has primitive funtion on $\mathbb{R}^+$. Prepositions of \ref{thm-nondecreasing} are met. Choosing $\epsilon=\delta=1$ we get that $\int_limits_{n-1}^n \log(y) dy\leq \log(n)\leq \int_limits_{n}^{n+1} \log(y) dy$ and using \ref{XXXAAA} we get $\int_limits_{0}^n \log(y) dy\leq \log(n!)\leq \int_limits_{1}^{n+1} \log(y) dy$. By calculating integrals (first one is improper however convergent). We get that $n\lon(n)-n\leq \log(n!) \leq (n+1)\log(n+1)-n$
+\end{proof}
+\begin{thm}[Arc sine law for last visit to the origin]
+  Let \rw be a symmetric random walk. The probability that the last visit to origin up to time $2n$ oured at time $2k$ is $\pr(S_{2k}=0)\pr(S_{2(n-k)}=0)$.
+\end{thm}
+\begin{proof}
+  $u_{2k}=\pr(S_{2k}=0)=\binom{2k}{k}2^{-2k}=\frac{(2k)!}{\left( k!\right)^2}2^{-2k}\sim \frac{(2k)^{2k}e^{-2k}\sqrt{4\pi k}}{k^{2k}e^{-2k}2^{2k}2\pi k}=\frac{1}{\sqrt{\pi k}}.$ Therefore we get that $\alpha_{2n}(2k)=u_{2k}u_{2(n-k)}\sim \frac{1}{\pi \sqrt{k(n-k)}}$
+\end{proof}
 
 
 \section{Title of the first subchapter of the first chapter}
