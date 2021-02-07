@@ -142,20 +142,21 @@
 \begin{proof}
   $\alpha{2n}(2k)=u_{2k}u_{2(n-k)}=\pr(S_{2k}=0)\pr(S_{2k+1}\cdot S_{2k+2}\cdot, \ldots, S_{2n}\neq 0| S_{2k}=0)=\pr(S_{2k}=0)\pr(S_{1}\cdot S_{2}\cdot, \ldots, S_{2(n-k)}\neq 0)=\pr(S_{2k}=0)\pr(S_{2(n-k)}=0) $
 \end{proof}
-\begin{lemma}\label{thm-XXX}
-  Let \rw be a symmetric random walk. $\pr(S_1, S_2, \ldots, S_{2n}>0)=\frac{1}{2}\pr(S_{2n}=0)=\frac{1}{2}u_{2n}.$
-\end{lemma}
-\begin{proof}
-  $\pr(S_1, S_2, \ldots, S_{2n}>0)=\pr(S_1, S_2, \ldots, S_{2n}\geq 1)=\pr(S_1=1, S_2=2, S_3, \ldots S_{2n}\geq 1)$. Now by concidering the walk starting at point $S_0=-1$ we get simmilar $=\frac{1}{2}\pr(S_1, S_2, \ldots, S_{2n}\geq 0)$
-\end{proof}
 \begin{thm}\label{thm-XXXX}
   Let $b \in Z$. $\pr(S_1\cdot S_2 \cdot, \ldots, S_n\neq 0, S_n=b)=\frac{\abs{b}}{n}\pr(S_n=b)$.
 \end{thm}
 \begin{proof}
-  Let us \wlog assume that $b>0$. In that case, first step has to be rightwards ($X_1=+1$). Now we have path from point $(1,1)$ to point $(n,b)$ that does not return to origin. By
+  Let us \Wlog assume that $b>0$. In that case, first step has to be rightwards ($X_1=+1$). Now we have path from point $(1,1)$ to point $(n,b)$ that does not return to origin. By Ballot theorem \ref{thm-ballot_theorem} there are $\frac{b}{n}N_n(0,b)$ such paths. Each path consists of $\frac{n+b}{2}$ rightwards steps and $\frac{n-b}{2}$ leftwards steps. Therefore $\pr(S_1\cdot S_2 \cdot, \ldots, S_n\neq 0, S_n=b)=\frac{b}{n}N_n(0,b)p^{\frac{n+b}{2}}q^{\frac{n-b}{2}}=\frac{b}{n}\pr(S_n=b)$. Case $b<0$ is identical.
 \end{proof}
 
-
+\begin{lemma}\label{thm-XXX}
+  Let \rw be a symmetric random walk. $\pr(S_1, S_2, \ldots, S_{2n}>0)=\frac{1}{2}\pr(S_{2n}=0)=\frac{1}{2}u_{2n}.$
+\end{lemma}
+\begin{proof}
+  Because $S_i>0 \forall i \in \N$ the first step has to be rightwards ($X_1=S_1=1$). Therefore we get
+  $\pr(S_1, S_2, \ldots, S_{2n}>0)=\suma\pr(S_1, S_2, \ldots, S_{2n}> 0, S_{2n}=2r )$. The $r$-th term follows equation:
+  $\pr(S_1, S_2, \ldots, S_{2n}> 0, S_{2n}=2r)=\pr(X_1=1, S_2, \ldots, S_{2n}> 0, S_{2n}=2r)=\frac{1}{2}\pr(S_2, S_3, \ldots, S_{2n}> 0, S_{2n}=2r)=\frac{1}{2}\left(\pr(S_{2n}=2r)-\pr(S_2\cdot S_3\cdot \ldots \cdot S_{2n}=0, S_{2n}=2r)\right)=\frac{1}{2}\left(\frac{1}{2}^{2n-1}N_{2n-1}(1,2r)-\frac{1}{2}^{2n-1}N_{2n-1}^0(1,2r)\right)=\frac{1}{2}\frac{1}{2}^{2n-1}\left(N_{2n-1}(1,2r)-N_{2n-1}^0(1,2r)\right)=\frac{1}{2}\frac{1}{2}^{2n-1}\left(N_{2n-1}(1,2r)-N_{2n-1}(-1,2r)\right)=\frac{1}{2}\frac{1}{2}^{2n-1}\left(\binom{2n-1}{n+r-1}-\binom{2n-1}{n+r}\right)$. Therefore the negative parts of $r$-th terms cancel against the positive parts of $(r+1)$-st terms and the result reduces to just
+\end{proof}
 \section{Title of the first subchapter of the first chapter}
 
 \section{Title of the second subchapter of the first chapter}
