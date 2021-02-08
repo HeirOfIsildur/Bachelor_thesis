@@ -1,2 +1,28 @@
 \chapter*{Conclusion}
 \addcontentsline{toc}{chapter}{Conclusion}
+\begin{lemma}[Approximation of nondecreasing function]\label{thm-nondecreasing}
+  Let $x \in R$, $\epsilon, \delta>0$ and $f$ be a nondecreasing function that is defined on $(x-\epsilon, x+\delta)$ and has primitive function on intervals $(x-\epsilon, \epsilon)$ and $(x,x+\delta).$ Then $\frac{1}{\epsilon}\int_{limits_{x-\epsilon}^x} f(y) dy\leq f(x)\leq \frac{1}{\delta}\int_limits_{x}^{x+\delta} f(y) dy$.
+\end{lemma}
+\begin{proof}
+  $f$ is nondecreasing therefore $\forall z \in (x-\epsilon, x): f(z)\leq f(x)$ and $\frac{1}{\epsilon}\int_limits_{x-\epsilon}^x f(y) dy\leq \frac{1}{\epsilon}\int_limits_{x-\epsilon}^x f(x) dy =f(x)$. Similarly $\forall w \in (x, x+\delta): f(w)\geq f(x)$ therefore $\frac{1}{\delta}\int_limits_{x}^{x+\delta} f(y) dy \geq \frac{1}{\delta}\int_limits_{x}^{x+\delta} f(x) dy=f(x).$
+\end{proof}
+\begin{thm}
+  Let \rw be a symmetric random walk. $\pr(S_1, S_2, \ldots , S_{2n}\neq 0)=\pr(S_2n=0)$.
+\end{thm}
+\begin{proof}
+  $\pr(S_1, S_2, \ldots , S_{2n}\geq 0)=\pr(S_1, S_2, \ldots , S_{2n}\neq 0))$
+\end{proof}
+\begin{lemma}[Stirling's approximation formula]
+  $n!\sim \left(\frac{n}{e}\right)^n\sqrt{2\pi n}$ as $n \to \pinf$ which means that
+  $\Lim{n \to \pinf} \frac{n!}{\left(\frac{n}{e}\right)^n\sqrt{2\pi n}}= 1$.
+\end{lemma}
+\begin{proof}%DK PICK 9.6.7.
+PICK
+\end{proof}
+\begin{thm}[Arc sine law for last visit to the origin]
+  Let \rw be a symmetric random walk. The probability that the last visit to origin up to \Time $2n$ occurred \intime $2k$ is $\pr(S_{2k}=0)\pr(S_{2(n-k)}=0)$.
+\end{thm}
+\begin{proof}
+  $u_{2k}=\pr(S_{2k}=0)=\binom{2k}{k}2^{-2k}=\frac{(2k)!}{\left( k!\right)^2}2^{-2k}\sim \frac{(2k)^{2k}e^{-2k}\sqrt{4\pi k}}{k^{2k}e^{-2k}2^{2k}2\pi k}=\frac{1}{\sqrt{\pi k}}.$ Therefore we get that $\alpha_{2n}(2k)=u_{2k}u_{2(n-k)}\sim \frac{1}{\pi \sqrt{k(n-k)}}$
+\end{proof}
+$=\pr(S_1 \geq 1)\cdot \pr(S_2\geq 1 |S_1 \geq 1)\cdot \pr(S_3 \geq 1| S_1 \geq 1, S_2 \geq 1), \ldots \pr(S_2n\geq 1|S_1 \geq 1, S_2 \geq 1, \ldots S_{2n-1}\geq 1)=\pr(S_1 \geq 1)\cdot \pr(S_2\geq 1 |S_1 \geq 1)\cdot \pr(S_3 \geq 1|S_2 \geq 1), \ldots \pr(S_2n\geq 1|S_{2n-1}\geq 1)=\frac{1}{2}\pr(S_1\geq 0)\pr(S_2\geq 0|S_1;)$
