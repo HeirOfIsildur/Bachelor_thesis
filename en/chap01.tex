@@ -9,11 +9,11 @@
 \end{rem}
 
 \begin{defn}[Set of possible positions]\label{defn-set_all_possible_values}
- Let \rw be a random walk. We call the set $A_n=\{z \in \Z; \abs{z}\leq n, \frac{z+n}{2}\in \Z \}$ set of all possible positions of random walk \rw \intime $n$.
+ \Lrw. We call the set $A_n=\{z \in \Z; \abs{z}\leq n, \frac{z+n}{2}\in \Z \}$ set of all possible positions of random walk \rw \intime $n$.
 \end{defn}
 
 \begin{thm}[Probability of position $x$ \intime $n$]\label{thm-probability_position_time}
- Let \rw be a random walk and $A_n$ its set of possible positions.
+ \Lrw and $A_n$ its set of possible positions.
  \[
  \pr \left( S_n=x \right) =
  \begin{cases}
@@ -71,8 +71,8 @@
  Each path from $ \left( 0,-a \right) $ to $ \left( n,b \right) $ has to intersect $x$-axis at least once at some point. Let $k$ be the \Time of earliest intersection with $x$-axis. By reflexing the segment from $ \left( 0,-a \right) $ to $ \left( k,0 \right) $ in the $x$-axis, we get a path from point $ \left( 0,a \right) $ to $ \left( n,b \right) $ which visits $0$ at point $k$. Because reflection is bijective operation on sets of paths, we get the correspondence between the collections of such paths.
 \end{proof}
 \begin{defn}[Return to origin]\label{defn-return_origin1}
- Let \rw be a random walk. Then if $\exists k \in \N$ such that $S_k=0$ then we say that in $k$-th step occured return to origin.
- Let \rw be a random walk. Then if $S_1,S_2, \ldots, S_{2n-1}\neq 0$ and $S_{2n}=0$
+ \Lrw. Then if $\exists k \in \N$ such that $S_k=0$ then we say that in $k$-th step occured return to origin.
+ \Lrw. Then if $S_1,S_2, \ldots, S_{2n-1}\neq 0$ and $S_{2n}=0$
 \end{defn}
 \begin{thm}[Ballot theorem]\label{thm-ballot_theorem}
  Let $n,b \in N$
@@ -87,7 +87,7 @@
  $M_n=\max \{S_i, i\in \{0, 1, \ldots, n \} \}$
 \end{defn}
 \begin{thm}[Probability of maximum up to \Time $n$]\label{thm-probability_maximum_upto_time}
- Let \rw be a random walk.
+ \Lrw.
  \[\pr \left( M_n\geq r, S_n=b \right) =
  \begin{cases}
  \pr \left( S_n=b \right) & \text{for $b \geq r$ },\\
@@ -112,13 +112,13 @@
  %druhá rovnost $\pr \left( X_n=1 \right) =p$ 4. rovnost \ref{thm-probability-of-maximum}}
 \end{proof}
 \begin{thm}[XXXMean number of visits to $b$ before returning to origin in symmetric random walk]\label{thm-mean_number_visits}
- Let \rw be a symmetric random walk. Mean number $\mu_b$ of visits of the walk to point $b$ before returning to origin is equal to 1.
+ \Lrws. Mean number $\mu_b$ of visits of the walk to point $b$ before returning to origin is equal to 1.
 \end{thm}
 \begin{proof}
  aa
 \end{proof}
 \begin{defn}[Return to origin]\label{defn-return_origin}
- Let \rw be a random walk. Let $k \in \N$. We say a \emph{return to origin} occurred \intime $2k$ if $S_{2k}=0$. The probability that \intime $2k$ occured a return to origin shall be denoted by $u_{2k}$.
+ \Lrw. Let $k \in \N$. We say a \emph{return to origin} occurred \intime $2k$ if $S_{2k}=0$. The probability that \intime $2k$ occured a return to origin shall be denoted by $u_{2k}$.
  We say that \intime $2k$ occurred \emph{first return to origin} if $S_1, S_2, \ldots S_{2k-1}\neq 0$ and $S_{2k}=0$.
  The probability that \intime $2k$ occured first return to origin shall be denoted by $f_{2k}$. By definition $f_0=0$.
  Let $\alpha{2n} \left( 2k \right) $ denote $u_{2k}u_{2 \left( n-k \right) }$
@@ -137,7 +137,7 @@
  $\pr \left( S_1\cdot S_2, \cdot, \ldots, S_{2n}\neq 0 \right) =\suma[i][-\infty][\pinf] \pr \left( S_1\cdot S_2, \cdot, \ldots, S_{2n-1}\neq 0, S_{2n}=2i \right) =\suma[i][-n][n] \pr \left( S_1\cdot S_2, \cdot, \ldots, S_{2n-1}\neq 0, S_{2n}=2i \right) =2\cdot \suma \pr \left( S_1\cdot S_2, \cdot, \ldots, S_{2n-1}\neq 0, S_{2n}=2i \right) =2\suma \frac{2i}{2n}\pr \left( S_{2n}=2k \right) =2\suma \frac{2i}{2n}\binom{2n}{n+i}2^{-2n}=2\cdot 2^{-2n}\suma \left( \binom{2n-1}{m+k-1}-\binom{2n-1}{m+k} \right) =2\cdot 2^{-2n}\binom{2n-1}{n}=2^{-2n}\frac{2n}{n}\binom{2n-1}{n}=2^{-2n}\frac{2n \left( 2n-1 \right) !}{m \left( m-1 \right) !m!}=2^{-2n}\frac{ \left( 2n \right) !}{m!m!}=2^{-2n}\binom{2n}{n}=\pr \left( S_2n=0 \right) $
 \end{proof}
 \begin{thm}\label{thm-return_origin_upto_time}
- Let \rw be a symmetric random walk. The probability that the last return to origin up to \Time $2n$ occurred \intime $2k$ is $\pr \left( S_{2k}=0 \right) \pr \left( S_{2 \left( n-k \right) }=0 \right) $.
+ \Lrws. The probability that the last return to origin up to \Time $2n$ occurred \intime $2k$ is $\pr \left( S_{2k}=0 \right) \pr \left( S_{2 \left( n-k \right) }=0 \right) $.
 \end{thm}
 \begin{proof}
  $\alpha{2n} \left( 2k \right) =u_{2k}u_{2 \left( n-k \right) }=\pr \left( S_{2k}=0 \right) \pr \left( S_{2k+1}\cdot S_{2k+2}\cdot, \ldots, S_{2n}\neq 0 \mid S_{2k}=0 \right) =\pr \left( S_{2k}=0 \right) \pr \left( S_{1}\cdot S_{2}\cdot, \ldots, S_{2 \left( n-k \right) }\neq 0 \right) =\pr \left( S_{2k}=0 \right) \pr \left( S_{2 \left( n-k \right) }=0 \right) $
@@ -150,7 +150,7 @@
 \end{proof}
 
 \begin{lemma}\label{thm-probability_strictly_above}
- Let \rw be a symmetric random walk. $\pr \left( S_1, S_2, \ldots, S_{2n}>0 \right) =\h \pr \left( S_{2n}=0 \right) =\h u_{2n}.$
+ \Lrws. $\pr \left( S_1, S_2, \ldots, S_{2n}>0 \right) =\h \pr \left( S_{2n}=0 \right) =\h u_{2n}.$
 \end{lemma}
 \begin{proof}
  Because $S_i>0 \forall i \in \N$ the first step has to be rightwards $\left(X_1=S_1=1\right)$ . Therefore we get
@@ -198,18 +198,18 @@
  %**\ref{thm-probability_no_return}
 \end{proof}
 \begin{defn}[Time spend on the positive and negative sides]
- Let \rw be a random walk. We say that the walk spent $\tau$ time units of $n$ on the positive side if $\suma \indikator{S_i>0 \lor S_{i-1}>0}=\tau$. Let $\beta_{n} \left( \tau \right) $ denote the probability of such an event. We say that the walk spent $\zeta$ time units of $n$ on the negative side if $\suma\indikator{S_i<0 \lor S_{i-1}<0}=\zeta$.
+ \Lrw. We say that the walk spent $\tau$ time units of $n$ on the positive side if $\suma \indikator{S_i>0 \lor S_{i-1}>0}=\tau$. Let $\beta_{n} \left( \tau \right) $ denote the probability of such an event. We say that the walk spent $\zeta$ time units of $n$ on the negative side if $\suma\indikator{S_i<0 \lor S_{i-1}<0}=\zeta$.
 \end{defn}
 \begin{thm}[Arcsine law for sojourn times]\label{thm-arcsine_sojourn_times}
- Let \rw be a symmetric random walk. Then $\beta_{2n} \left( 2k \right) =\alpha_{2n} \left( 2k \right) $.
+ \Lrws. Then $\beta_{2n} \left( 2k \right) =\alpha_{2n} \left( 2k \right) $.
 \end{thm}
-\begin{proof}%Musím tohle dělat celé? Nestačilo by se odkázat na Fellera?
- Firstly let us start with degenerate cases. $\beta_{2n} \left( 2n \right) =\pr \left( \suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2n \right) =\pr \left( S_1, S_2, \ldots, S_{2n}\geq 0 \right) =*u_{2n}$. By symmetry $\beta_{2n} \left( 0 \right) =\beta_{2n} \left( 2n \right) =u_{2n}$.
-
- \[
- \beta_{2n} \left( 2k \right) =\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \right) =*a\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0 \right) =*b \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right) +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right) =*c\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right) \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right) +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\pr \left( S_1, S_2, \ldots, S_{2r-1}>0, S_{2r}=0 \right)=*d \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_{2r}=0  \right)+ \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r \Mid S_{2r}=0  \right)=*e \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k\right)+ \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r\right)=\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)
- \]
- Now by induction: 
+\begin{proof}%My own proof
+  Firstly let us start with degenerate cases. *f$\beta_{2n} \left( 2n \right) =\pr \left( \suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2n \right) =\pr \left( S_1, S_2, \ldots, S_{2n}\geq 0 \right) =*u_{2n}$. By symmetry $\beta_{2n} \left( 0 \right) =\beta_{2n} \left( 2n \right) =u_{2n}.$
+  Let $1 \leq k \leq v-1$, where $0\leq v \leq n$. For such $k$ stands equation:
+  \[
+  \beta_{2n} \left( 2k \right) =\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \right) =*a\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0 \right) =*b \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right) +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right) =*c\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right) \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right) +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\pr \left( S_1, S_2, \ldots, S_{2r-1}>0, S_{2r}=0 \right)=*d \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_{2r}=0  \right)+ \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r \Mid S_{2r}=0  \right)=*e \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k\right)+ \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r\right)=\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)
+  \]
+  Now let us proceed by induction. Case for $v=1$ is trivial because it implies degenerous case from *f. Let the statment be true for $v \leq n-1$, then $\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)=*g\suma[r][1][n] \h f_{2r} \alpha_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\alpha_{2n-2r}\left(2k-2r\right)=*h \suma[r][1][n] \h f_{2r} u_{2k}u_{2n-2r-2k}+\suma[r][1][n] \h f_{2r} u_{2k-2r}u_{2n-2k}=*i \h u_{2k} \suma[r][1][n] f_{2r} u_{2n-2r-2k}+ \h u_{2n-2k} \suma[r][1][n] f_{2r} u_{2k-2r}u_{2n-2k}=*j \h u_{2n-2k} u_{2k} +\h u_{2n-2k} u_{2k}=u_{2n-2k} u_{2k}=*h\alpha_{2n}\left(2k\right)$
 
  %*-\ref{thm-probability_above_or_on}
  %*a-úplná past
@@ -217,9 +217,23 @@
  %*c násobení pastí
  %*d využití odmínky na kladnost/zápornost prvních 2r kroků
  %*e \ref{thm-temporal_homogeneity}
+ %*g indukční předpoklad
+ %*h \ref{defn-return_origin}
+ %*i factoring out terms not contatining r
+ %*j theorem 2.6 Feller
 \end{proof}
+\begin{defn}[Change of a sign]
+  \Lrw. We say that \intime $n$ occurred a change of sign if if $S_{n-1}\cdot S_{n+1}=-1$ in other words if $\left(S_{n-1}=+1 \land S_{n+1}=-1\right) \lor \left(S_{n-1}=-1 \land S_{n+1}=+1\right).$ We shall denote the probability that up to \time $n$ occured $r$ changes of sign by $\xi_{r, n}$.
+\end{defn}
+\begin{thm}[Change of a sign]
+  \Lrws. The probability $\xi_{r,2n+1}=2\pr\left( S_{2n+1}=2r+1 \right)$
+\end{thm}
+\begin{proof}
+  Feller
+\end{proof}
+
+
 
 \section{Title of the first subchapter of the first chapter}
 
 \section{Title of the second subchapter of the first chapter}
-rem
