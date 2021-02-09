@@ -177,7 +177,7 @@
  %6-S_{2n-1}\geq 0 \implies S_{2n-1}\geq 1 \implies S_{2n}\geq 0
 \end{proof}
 \begin{thm}[XXX]\label{thm-xxx}
- $f_2n=u_{2n-2}u_{2n}$
+ $f_{2n}=u_{2n-2}-u_{2n}$
 \end{thm}
 \begin{proof}
  The event $[S_1, S_2, \ldots S_{2n-1}\neq 0]$ can be split into two disjoint events: $[S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}=0]$ and $[S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}\neq 0]$. Therefore $\pr \left( S_1, S_2, \ldots S_{2n-1}\neq 0 \right) =\pr \left( S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}=0 \right) +\pr \left( S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}\neq 0 \right) $. Therefore we get $f_{2n}=\pr \left( S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}=0 \right) =\pr \left( S_1, S_2, \ldots S_{2n-1}\neq 0 \right) -\pr \left( S_1, S_2, \ldots, S_{2n}\neq 0 \right) $. Because $2n-1$ is odd. $\pr \left( S_{2n-1}=0 \right) =0$. Therefore the first term is equal to $\pr \left( S_1, S_2, \ldots S_{2n-2}\neq 0 \right) $ which is by \ref{thm-probability_no_return} equal to $u_{2n-2}$. Second term is by \ref{thm-probability_no_return} equal to $u_{2n}$. Therefore we get the result.
@@ -231,7 +231,12 @@
 \begin{proof}
   Feller
 \end{proof}
+\begin{thm}[Equidistribution theorem]
+  \Lrws. The number of paths length $2n$ such that $S_{2n}=0$ and exactly $2k$ time units were spent on the positive side is independent of $k$ and is equal to $\frac{2^{2n}u_{2n}}{n+1}=2^{2n+1}f_{2n+2}$ for $k \in \{0, 1, \ldots n\}$.
+\end{thm}
+\begin{proof}
 
+\end{proof}
 
 
 \section{Title of the first subchapter of the first chapter}
