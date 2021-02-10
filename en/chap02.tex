@@ -1,7 +1,47 @@
 \chapter{Title of the second chapter}
 
-\section{Title of the first subchapter of the second chapter}
+\section{Problem chapter 9 Feller}
+\begin{defn}[$\delta, \varepsilon$]
+  \Lrws. $\delta_{n}\left( k\right)$ shall denote $\pr\left(\suma \indikator{S_i>0 \lor S_{i-1}>0}=k, S_n=0 \right)$, $\varepsilon_{n}^r\left(k \right)$ shall denote $\pr\left(\suma \indikator{S_i>0 \lor S_{i-1}>0}=k, S_1, S_2, \ldots, S_{r-1}\neq 0, S_r=0, S_n=0 \right)$,
+  $\varepsilon_{n}^{r,+}\left(k \right)$ shall denote $\pr\left(\suma \indikator{S_i>0 \lor S_{i-1}>0}=k, S_1, S_2, \ldots, S_{r-1} > 0, S_r=0, S_n=0 \right)$,
+  $\varepsilon_{n}^{r,-}\left(k \right)$ shall denote $\pr\left(\suma \indikator{S_i>0 \lor S_{i-1}>0}=k, S_1, S_2, \ldots, S_{r-1} < 0, S_r=0, S_n=0 \right)$.
+\end{defn}
+\begin{lemma}[Factorization of $\delta_{2n}\left( 2k\right)$]\label{thm-factorization_lemma}
+  $\delta_{2n}\left( 2k\right)=\h \suma[r][1][n]\left( f_{2r} \delta_{2n-2r}\left(2k-2r\right)+f_{2r} \delta_{2n-2r}\left( 2r \right)\right)$.
+\end{lemma}
+\begin{proof}
+  Because $S_{2n}=0$ a return to origin must have happened. Let $2r$ the \Time of first return to origin, where $r \in \{1, 2, \ldots, n\}$. By the law of total probability:
+  $\delta_{2n}\left( 2k\right)=\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=k, S_{2n}=0 \right)=\suma[r][1][n]\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0 S_{2n}=0 \right)$ which can be again by the law of total probability factorized as:
+  $\suma[r][1][n]\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0 S_{2n}=0 \right)=\suma[r][1][n]\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 S_{2n}=0 \right)
+  +\suma[r][1][n]\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 S_{2n}=0 =\suma[r][1][n]\varepsilon_{2n}^{2r,+}\left(2k\right)\right)+\suma[r][1][n]\varepsilon_{2n}^{2r,-}\left(2k\right)$.
+  Now let us calculate $\varepsilon_{2n}^{2r,+}\left(2k\right)$.
+  $\varepsilon_{2n}^{2r,+}\left(2k\right)=\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 S_{2n}=0 \right)=
+  *a\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n}=0 \mid S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right) \pr \left( S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)=
+  \pr\left(\suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r, S_{2n}=0 \Mid S_{2r}=0 \right) \h f_{2r}=*b
+  \pr\left(\suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r, S_{2n-2r}=0\right) \h f_{2r}=*c
+  \delta_{2n-2r} \left( 2k-2r \right)\h f_{2r}$.
+  Similarly $\varepsilon_{2n}^{2r,-}\left(2k\right)=\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 S_{2n}=0 \right)=
+  *a\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n}=0 \mid S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right) \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)=
+  \pr\left(\suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n}=0 \Mid S_{2r}=0 \right) \h f_{2r}=*b
+  \pr\left(\suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n-2r}=0\right) \h f_{2r}=*c
+  \delta_{2n-2r}\left( 2k \right)\h f_{2r}$.
+  Therefore $\delta_{2n} \left(2k \right)=\frac{1}{2}\suma[r][1][n] f_{2r}\delta_{2n-2r} \left( 2k-2r\right)+\frac{1}{2}\suma[r][1][n] f_{2r}\delta_{2n-2r} \left( 2k \right)=\h \suma[r][1][n]\left( f_{2r} \delta_{2n-2r}\left(2k-2r\right)+f_{2r} \delta_{2n-2r}\left( 2r \right)\right)$
+  %*a Multiplication thm
+  %*b temporal homog
+  %*c definition $\delta$
+\end{proof}
+\begin{thm}[Equidistributional theorem]
+  \Lrws  and $n \in \N$, then $\forall k,l \in \{0,1, \ldots, n \}:\delta_{2n}\left( 2k \right)=\delta_{2n}\left( 2l \right)=\frac{u_{2n}}{n+1}.$
+\end{thm}
+\begin{proof}
+  Let us prove this statement by induction in $n$. In case that $n=1$ we have two options for $k$. Either $k=0$ or $k=1$. $\delta_2\left(0 \right)=\pr\left( S_1<0, S_2=0\right)=\h f_2=*a
+  \h u_2\frac{1}{2-1}=\frac{u_2}{2}
+  \delta_2 \left( 2\right)=\pr \left( S_1>0, S_2=0\right)=\h f_2=\frac{u_2}{2}$.
 
-\section{Title of the second subchapter of the second chapter}
-
-\section{Useless tex things I made and I rather store them here}
+  Let the statment be true for all $l\leq n-1$. In that case $\delta_{2(n-l)}\left( 2k \right)=\frac{u_{2(n-l)}}{n-l+1}$. We want to show that $\delta_{2n}=\frac{u_{2n}}{n+1}$.
+  Let us calculate $\delta_{2n}$. $\delta_{2n}=*b
+  \h \suma[r][1][n]\left( f_{2r} \delta_{2n-2r}\left(2k-2r\right)+f_{2r} \delta_{2n-2r}\left( 2r \right)\right)=
+  \h \suma[r][1][n]\left( f_{2r} u_{2n-2r}\frac{1}{n-r+1}+f_{2r}u_{2n-2r}\frac{1}{n-r+1}\right)=\suma[r][1][n]\left( \frac{f_{2r} u_{2n-2r}}{n-r+1}\right)$
+  %*a theorem \ref{thm-f_2n=\frac}
+  %*b \ref{thm-factorization_lemma}
+\end{proof}
