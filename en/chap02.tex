@@ -16,12 +16,14 @@
     0, 0, \ldots, 0
   \end{pmatrix}^T$. Let $S_0=\textbf{0}$ and $S_n=\suma X_i$. Then the \ce triplet \rw is called \emph{Type I random walk in $\mathbb{Z}^m$}.
 
-  If $\forall i \in \{1, 2, \ldots, m\}: p_i=q_i=\frac{1}{2m}$ we call the \ce element $\{S_n\}_{n=0}^\pinf$ \emph{Symmetric type I random walk $\mathbb{Z}^m$}.
+  If $\forall i \in \{1, 2, \ldots, m\}: p_i=q_i=\frac{1}{2m}$ we call the \ce element $\{S_n\}_{n=0}^\pinf$ \emph{Symmetric type I random walk in $\mathbb{Z}^m$}.
 \end{defn}
 \begin{defn}[Type II random walk in $\Z^m$]\label{defn-type_II}
-  Let $m \in \N, \forall n \in \N X_n=\begin{pmatrix}x_{1,n} & x_{2,n}& \ldots, x_{m,n}\end{pmatrix}^T$, where $\forall i \in \{ 1,2, \ldots, m\} x_{i,n}$
+  Let $m \in \N, \forall n \in \N X_n=\begin{pmatrix}x_{1,n} & x_{2,n}& \ldots, x_{m,n}\end{pmatrix}^T$, where $\forall i \in \{ 1,2, \ldots, m\} \rm x_{i,n}$
   has values in $\{-1,+1\}$ with probabilities $\pr \left(x_{i,n}=+1\right)=p_i \in \left(0,1\right)$ and $\pr \left(x_{i,n}=-1\right)=q_i=1-p_i \in  \left(0,1 \right).$
-  Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables. Let $S_0=\textbf{0}$ and $\forall n \in \N: S_n=\suma X_i$. Then the pair $\left(\{S_n\}_{n=0}^\pinf, \textbf{p} \right)$ is called \emph{Type II random walk in $\mathbb{Z}^m$}.
+  Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables. Let $S_0=\textbf{0}$ and $\forall n \in \N: S_n=\suma X_i$ and $\bf{p}=\begin{pmatrix}
+   p_1, p_2, \ldots, p_m
+ \end{pmatrix}^T$. Then the pair $\left(\{S_n\}_{n=0}^\pinf, \textbf{p} \right)$ is called \emph{Type II random walk in $\mathbb{Z}^m$}.
 
   If $\forall i \in \{1, 2, \ldots, m\}: p_i=q_i=\h$ we call the \ce element $\{S_n\}_{n=0}^\pinf$ \emph{Symmetric type II random walk $\mathbb{Z}^m$}.
 \end{defn}
