@@ -31,14 +31,21 @@
 % Draw black "slugs" whenever a line overflows, so that we can spot it easily.
 \overfullrule=1mm
 
-%%% Macros for definitions, theorems, claims, examples, ... (requires amsthm package)
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
 
-\theoremstyle{plain}
+
+%%% Macros for definitions, theorems, claims, examples, ... (requires amsthm package)
+%%%%%%%%%%%%%%%\theoremstyle{plain}
+\theoremstyle{break}
 \newtheorem{thm}{Theorem}
 \newtheorem{lemma}[thm]{Lemma}
 \newtheorem{claim}[thm]{Claim}
 
-\theoremstyle{plain}
+\theoremstyle{break}
 \newtheorem{defn}{Definition}
 
 \theoremstyle{remark}

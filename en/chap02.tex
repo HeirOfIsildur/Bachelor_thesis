@@ -41,7 +41,16 @@
   Let the statment be true for all $l\leq n-1$. In that case $\delta_{2(n-l)}\left( 2k \right)=\frac{u_{2(n-l)}}{n-l+1}$. We want to show that $\delta_{2n}=\frac{u_{2n}}{n+1}$.
   Let us calculate $\delta_{2n}$. $\delta_{2n}=*b
   \h \suma[r][1][n]\left( f_{2r} \delta_{2n-2r}\left(2k-2r\right)+f_{2r} \delta_{2n-2r}\left( 2r \right)\right)=
-  \h \suma[r][1][n]\left( f_{2r} u_{2n-2r}\frac{1}{n-r+1}+f_{2r}u_{2n-2r}\frac{1}{n-r+1}\right)=\suma[r][1][n]\left( \frac{f_{2r} u_{2n-2r}}{n-r+1}\right)$
+  \h \suma[r][1][n]\left( f_{2r} u_{2n-2r}\frac{1}{n-r+1}+f_{2r}u_{2n-2r}\frac{1}{n-r+1}\right)=\suma[r][1][n]\left( \frac{f_{2r} u_{2n-2r}}{n-r+1}\right)
+  =?\frac{u_{2n}}{n+1}$ Because
+
   %*a theorem \ref{thm-f_2n=\frac}
   %*b \ref{thm-factorization_lemma}
+\end{proof}
+\begin{lemma}
+  $\suma[r][1][n]\left( \frac{f_{2r} u_{2n-2r}}{n-r+1}\right)
+  =\frac{u_{2n}}{n+1}$
+\end{lemma}
+\begin{proof}
+  $f_{2r}=u_{2n-2}-u_{2n}$
 \end{proof}
