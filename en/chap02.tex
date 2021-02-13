@@ -4,20 +4,18 @@
 \begin{defn}[Type II random walk in $\Z^m$]\label{defn-type_II}
   Let $m \in \N$. $\forall n \in \N$, let $X_n=\begin{pmatrix} \x[1] & \x[2]& \ldots, \x[m]\end{pmatrix}^T$, where $\{\x[i]\}_{i=1}^{m}$ are $\forall n \in \N$ independent.
   \ce NEVÍM JAK TO NAPSAT LÍP
-  Let $\forall i \in \{1,2,\ldots, m\}\x[i]$ have values in $\{-1,+1\}$ with probabilities $\pr \left(\x[i]=+1\right)=p_i \in \left(0,1\right)$ and $\pr \left(\x[i]=-1\right)=q_i=1-p_i \in  \left(0,1 \right).$
+  Let $\forall i \in \jm \x[i]$ have values in $\{-1,+1\}$ with probabilities $\pr \left(\x[i]=+1\right)=p_i \in \left(0,1\right)$ and $\pr \left(\x[i]=-1\right)=q_i=1-p_i \in  \left(0,1 \right).$
 
   Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables. Let $S_0=\mathbf{0}$ and $\forall n \in \N: \mathbf{S_n}=\suma X_i$ and $\bf{p}=\begin{pmatrix}
    p_1, p_2, \ldots, p_m
  \end{pmatrix}^T$. Then the pair $\left(\{\mathbf{S_n}\}_{n=0}^\pinf, \mathbf{p} \right)$ is called \emph{Type II random walk in $\mathbb{Z}^m$}.
 
-  If $\forall i \in \{1, 2, \ldots, m\}: p_i=q_i=\h$ we call the \ce element $\{\mathbf{S_n}\}_{n=0}^\pinf$ \emph{Symmetric type II random walk $\mathbb{Z}^m$}.
+  If $\forall i \in \jm: p_i=q_i=\h$ we call the \ce element $\{\mathbf{S_n}\}_{n=0}^\pinf$ \emph{Symmetric type II random walk $\mathbb{Z}^m$}.
 \end{defn}
 \begin{rem}
   Type II random walk can be interpreted as $m$ simple random walks in $\Z$ happening at a time, each of them parallel to an axis of $\Z^m$.
 \end{rem}
-\begin{rem}
-  Due to the the aim of this thesis which is reasearching occupation time of a set of random walks we are going to concern only on symmetric random walks.
-\end{rem}
+
 
 \begin{thm}
   \Lrwm. Let $\mathbf{y}=\begin{pmatrix}
@@ -26,8 +24,8 @@
   \[
   \pr \left( S_n=x \right) =
   \begin{cases}
-  \prod_{i=1}^{m}\binom{n}{\frac{y_i+n}{2}}{p_i}^{\frac{n+y_i}{2}}{q_i}^{\frac{n-y_i}{2}}, & \text{if $\forall i \in \{1, 2, \ldots, m\}:y_i\in A_n$},\\
-  0, & \text{if $\exists i \in \{1, 2, \ldots, m\}:y_i\not\in A_n$}.
+  \prod_{i=1}^{m}\binom{n}{\frac{y_i+n}{2}}{p_i}^{\frac{n+y_i}{2}}{q_i}^{\frac{n-y_i}{2}}, & \text{if $\forall i \in \jm:y_i\in A_n$},\\
+  0, & \text{if $\exists i \in \jm:y_i\not\in A_n$}.
   \end{cases}
   \]
 
@@ -37,4 +35,43 @@
     =\pr\left( \s[1]=y_1, \s[2]=y_2, \ldots, \s[m]=y_m\right)
     \overset{\indep}{=}\prod\limits_{i=1}^{m}\pr\left(\s =y_i\right)\\
     =\prod\limits_{i=1}^{m}\binom{n}{\frac{y_i+n}{2}}{p_i}^{\frac{n+y_i}{2}}{q_i}^{\frac{n-y_i}{2}}.$ The second equation comes from the independency of $\{\mathbf{S_i}\}_{i=1}^m$ which comes easily from independency of $\indexx[i][n][X]$. The second equation comes from the theorem of probability of position and time from the first chapter (\ref {thm-probability_position_time}).
+\end{proof}
+
+\begin{rem}
+  Due to the the aim of this thesis which is reasearching occupation time of a set of random walks we are going to concern only on symmetric random walks.
+\end{rem}
+\begin{defn}[Orthant-je to potřeba?]
+  Let $m \in \Z.$ Then $O\subset \Z^m$ is called an \emph{open orthant in $\Z^m$} if $\forall o \in O, \forall i \in \jm:o=\begin{pmatrix}
+  o_1, o_2, \ldots, o_m
+  \end{pmatrix}^T:o_i\varepsilon_i>0 \text{, where } \varepsilon_i\in \{-1,+1\}.$
+  $C\subset \Z^m$ is called a \emph{closed orthant in $\Z^m$} if $\forall c \in C, \forall i \in \jm:o=\begin{pmatrix}
+  o_1, o_2, \ldots, o_m
+  \end{pmatrix}^T:o_i\varepsilon_i\geq0 \text{, where } \varepsilon_i\in \{-1,+1\}.$
+\end{defn}
+\begin{rem}
+  The statement $\mathbf{x}>\mathbf{y}$ will mean $\forall i \in \jm:x_i>y_i$. Same applies to $<,\leq, \geq.$
+\end{rem}
+\begin{thm}[Probability of being in an open orthant]\label{thm-prob_being_open_orthant}
+  Let $\{\mathbf{\mathbf{S_n}}\}_{n=0}^\pinf$ be a Symmetric type II random walk in $\Z^m$. Let $O$ be an open orthant in $Z^m$. $\pr \left(\mathbf{S_n}\in C\right)=\left( \h u_{2n}\right)^m.$
+\end{thm}
+\begin{proof}
+  \Wlog we can assume that in the definition of $C$ we choose $\forall i \in \jm \varepsilon_i \dosad +1$ then:
+  $\pr \left(\mathbf{S_n}\in O\right)
+  =\pr \left(\s[1]>0, \s[2]>0, \ldots, \s[m]>0\right)
+  =\prod_{i=1}^m \pr \left(\s[i]>0\right)
+  =\left(\pr \left( \s>0\right)\right)^m
+  =\left(\h u_{2n}\right)^m.$
+  Where the last two equations come from the identical distribution of $\s$ and Lemma \ref{thm-probability_strictly_above}.
+\end{proof}
+\begin{thm}[Probability of being in a closed orthant]\label{thm-prob_being_closed_orthant}
+  Let $\{\mathbf{\mathbf{S_n}}\}_{n=0}^\pinf$ be a Symmetric type II random walk in $\Z^m$. Let $C$ be a closed orthant in $Z^m$. $\pr \left(\mathbf{S_n}\in C\right)=\left(u_{2n}\right)^m.$
+\end{thm}
+\begin{proof}
+  \Wlog we can again assume that in the definition of $C$ we choose $\forall i \in \jm \varepsilon_i \dosad +1$ then:
+  $\pr \left(\mathbf{S_n}\in C\right)
+  =\pr \left(\s[1]\geq0, \s[2]\geq0, \ldots, \s[m]\geq0\right)
+  =\prod_{i=1}^m \pr \left(\s[i]\geq 0\right)
+  =\left(\pr \left( \s\geq0\right)\right)^m
+  =\left(u_{2n}\right)^m.$
+  Where the last two equations come from the identical distribution of $\s$ and Lemma \ref{thm-probability_above_or_on}.
 \end{proof}

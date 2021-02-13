@@ -74,7 +74,7 @@
 \begin{defn}[Number of possible paths]\label{defn-number_possible_paths}
  Let $N_n \left( a,b \right) $ be number of posssible paths of random walk \rw from point $ \left( 0,a \right) $ to point $ \left( n,b \right) $
  and $N_n^x \left( a,b \right) $ be number of possible paths from point $ \left( 0,a \right) $ to point $ \left( n,b \right) $
- that visit point $ \left( z,x \right) $ for some $z \in \{0, 1, \ldots n \}$.
+ that visit point $ \left( z,x \right) $ for some $z \in \jn$.
 \end{defn}
 \begin{thm}\label{thm-number_of_possible_paths}
  Let $a,b \in \Z, n \in \N$ then $N_n \left( a,b \right) =\binom{n}{\h \left( n+b-a \right) }.$
@@ -116,7 +116,7 @@
  =\frac{b}{n}N_n \left( 0,b \right)
  $\end{proof}
 \begin{defn}\label{defn-max}
- $M_n=\max \{S_i, i\in \{0, 1, \ldots, n \} \}$
+ $M_n=\max \{S_i, i\in \jn \}$
 \end{defn}
 \begin{thm}[Probability of maximum up to \Time $n$]\label{thm-probability_maximum_upto_time}
  \Lrw.
@@ -128,11 +128,11 @@
  \]
 \end{thm}
 \begin{proof}
- Let us firstly consider the easier case in which $b \geq r$. Because we defined $M_n$ as $\max \{S_i, i\in \{0, 1, \ldots, n \} \}$ we get that $M_n \geq b \geq r$
+ Let us firstly consider the easier case in which $b \geq r$. Because we defined $M_n$ as $\max \{S_i, i\in \jn \}$ we get that $M_n \geq b \geq r$
  therefore $[M_n \geq r] \subset [S_n=b]$ therefore we get $\pr \left( M_n\geq r, S_n=b \right) =
  \pr \left( S_n=b \right) $.
  Let $r\geq 1, b<r$. $N_n^r \left( 0,b \right) $ stands for number of paths from point $ \left( 0,0 \right) $ to point $ \left( n,b \right) $ which reach up to $r$.
- Let $k \in \{ 0, 1, \ldots, n \}$ denote the first \Time we reach $r$. By reflection principle (\ref{thm-reflection_principle}) , we can reflex the segment from $\left(k,r\right)$ to $ \left( n,b \right) $ in the axis:$y=r$.
+ Let $k \in \jn$ denote the first \Time we reach $r$. By reflection principle (\ref{thm-reflection_principle}) , we can reflex the segment from $\left(k,r\right)$ to $ \left( n,b \right) $ in the axis:$y=r$.
  Therefore we now have path from $ \left( 0,0 \right) $ to $ \left( n,2r-b \right) $ and we get that $N_n^r \left( 0,b \right) =N_n \left( 0,2r-b \right) $. $\pr \left( S_n=b,M_n\geq r \right) =N_n^r \left( 0,b \right) p^{\frac{n+b}{2}}q^{\frac{n-b}{2}}=
  N_n \left( 0,2r-b \right) p^{\frac{n+ \left( 2r-b \right) }{2}}q^{\frac{n- \left( 2r-b \right) }{2}}p^{\frac{n+b}{2}}q^{\frac{n-b}{2}}p^{b-r}q^{r-b}= \left( \frac{q}{p} \right) ^{r-b}\pr \left( S_n=2r-b \right).$
 \end{proof}
@@ -415,7 +415,7 @@
 \end{proof}
 \begin{thm}[Equidistributional theorem-ALMOST COMPLETE OWN PROOF]
   \Lrws  and $n \in \N$, then
-  $\forall k,l \in \{0,1, \ldots, n \}:\delta_{2n}\left( 2k \right)=\delta_{2n}\left( 2l \right)=\frac{u_{2n}}{n+1}.$
+  $\forall k,l \in \{0, 1, 2, \ldots, n \}:\delta_{2n}\left( 2k \right)=\delta_{2n}\left( 2l \right)=\frac{u_{2n}}{n+1}.$
 \end{thm}
 \begin{proof}
   Let us prove this statement by induction in $n$. In case that $n=1$ we have two options for $k$. Either $k=0$ or $k=1$.
