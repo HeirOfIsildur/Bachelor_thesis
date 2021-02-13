@@ -1,29 +1,40 @@
 \chapter{Multi dimensional random walk}
-\renewcommand{\rw}{$\left( \{S_n\}_{n=0}^\pinf, \textbf{p}, \textbf{q} \right)$}
-\begin{defn}[Type I random walk in $\Z^m$]\label{defn-type_I}
-  Let $m \in \N$. Let $e_i$ denote \[\left(
-  \begin{array}{@{\,}ccccccccc@{\,}}
-  \undermat{i-1\vphantom{m-1}}{0 & 0 & \ldots&0 } & 1& \undermat{m-i}{0 & \ldots &0 &0 }\\
-  \end{array}
-  \right)^T\rm
-  \forall i \in \{1, 2, \ldots, m\}.\] Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables with values in $\{ -e_1, +e_1, -e_2, +e_2, \ldots, -e_n, +e_n\}$.
-  That $\forall n \in \N$ satisfy the conditions $\pr\left(X_n=e_i \right)=p_i \in \left(0,1\right)$, $\pr\left(X_n=-e_i \right)=q_i \in \left(0,1\right)$ and $\suma[i][1][m] p_i+\suma[i][1][m]q_i=1$.
-  Let $\bf{p}=\begin{pmatrix}
-   p_1, p_2, \ldots, p_m
- \end{pmatrix}^T$, $\bf{q}=\begin{pmatrix}
-   q_1, q_2, \ldots, q_m
- \end{pmatrix}^T$ and $\bf{0}=\begin{pmatrix}
-    0, 0, \ldots, 0
-  \end{pmatrix}^T$. Let $S_0=\textbf{0}$ and $S_n=\suma X_i$. Then the \ce triplet \rw is called \emph{Type I random walk in $\mathbb{Z}^m$}.
+\renewcommand{\rw}{$\left( \{\mathbf{\mathbf{S_n}}\}_{n=0}^\pinf, \mathbf{p}\right)$}
 
-  If $\forall i \in \{1, 2, \ldots, m\}: p_i=q_i=\frac{1}{2m}$ we call the \ce element $\{S_n\}_{n=0}^\pinf$ \emph{Symmetric type I random walk in $\mathbb{Z}^m$}.
-\end{defn}
 \begin{defn}[Type II random walk in $\Z^m$]\label{defn-type_II}
-  Let $m \in \N, \forall n \in \N X_n=\begin{pmatrix}x_{1,n} & x_{2,n}& \ldots, x_{m,n}\end{pmatrix}^T$, where $\forall i \in \{ 1,2, \ldots, m\} \rm x_{i,n}$
-  has values in $\{-1,+1\}$ with probabilities $\pr \left(x_{i,n}=+1\right)=p_i \in \left(0,1\right)$ and $\pr \left(x_{i,n}=-1\right)=q_i=1-p_i \in  \left(0,1 \right).$
-  Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables. Let $S_0=\textbf{0}$ and $\forall n \in \N: S_n=\suma X_i$ and $\bf{p}=\begin{pmatrix}
-   p_1, p_2, \ldots, p_m
- \end{pmatrix}^T$. Then the pair $\left(\{S_n\}_{n=0}^\pinf, \textbf{p} \right)$ is called \emph{Type II random walk in $\mathbb{Z}^m$}.
+  Let $m \in \N$. $\forall n \in \N$, let $X_n=\begin{pmatrix} \x[1] & \x[2]& \ldots, \x[m]\end{pmatrix}^T$, where $\{\x[i]\}_{i=1}^{m}$ are $\forall n \in \N$ independent.
+  \ce NEVÍM JAK TO NAPSAT LÍP
+  Let $\forall i \in \{1,2,\ldots, m\}\x[i]$ have values in $\{-1,+1\}$ with probabilities $\pr \left(\x[i]=+1\right)=p_i \in \left(0,1\right)$ and $\pr \left(\x[i]=-1\right)=q_i=1-p_i \in  \left(0,1 \right).$
 
-  If $\forall i \in \{1, 2, \ldots, m\}: p_i=q_i=\h$ we call the \ce element $\{S_n\}_{n=0}^\pinf$ \emph{Symmetric type II random walk $\mathbb{Z}^m$}.
+  Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables. Let $S_0=\mathbf{0}$ and $\forall n \in \N: \mathbf{S_n}=\suma X_i$ and $\bf{p}=\begin{pmatrix}
+   p_1, p_2, \ldots, p_m
+ \end{pmatrix}^T$. Then the pair $\left(\{\mathbf{S_n}\}_{n=0}^\pinf, \mathbf{p} \right)$ is called \emph{Type II random walk in $\mathbb{Z}^m$}.
+
+  If $\forall i \in \{1, 2, \ldots, m\}: p_i=q_i=\h$ we call the \ce element $\{\mathbf{S_n}\}_{n=0}^\pinf$ \emph{Symmetric type II random walk $\mathbb{Z}^m$}.
 \end{defn}
+\begin{rem}
+  Type II random walk can be interpreted as $m$ simple random walks in $\Z$ happening at a time, each of them parallel to an axis of $\Z^m$.
+\end{rem}
+\begin{rem}
+  Due to the the aim of this thesis which is reasearching occupation time of a set of random walks we are going to concern only on symmetric random walks.
+\end{rem}
+
+\begin{thm}
+  \Lrwm. Let $\mathbf{y}=\begin{pmatrix}
+   y_1, y_2, \ldots, y_m
+  \end{pmatrix}^T\in \Z^m.$ Then following equation stands:
+  \[
+  \pr \left( S_n=x \right) =
+  \begin{cases}
+  \prod_{i=1}^{m}\binom{n}{\frac{y_i+n}{2}}{p_i}^{\frac{n+y_i}{2}}{q_i}^{\frac{n-y_i}{2}}, & \text{if $\forall i \in \{1, 2, \ldots, m\}:y_i\in A_n$},\\
+  0, & \text{if $\exists i \in \{1, 2, \ldots, m\}:y_i\not\in A_n$}.
+  \end{cases}
+  \]
+
+\end{thm}
+\begin{proof}
+  $\pr\left(\mathbf{S_n}=\mathbf{y}\right)
+    =\pr\left( \s[1]=y_1, \s[2]=y_2, \ldots, \s[m]=y_m\right)
+    \overset{\indep}{=}\prod\limits_{i=1}^{m}\pr\left(\s =y_i\right)\\
+    =\prod\limits_{i=1}^{m}\binom{n}{\frac{y_i+n}{2}}{p_i}^{\frac{n+y_i}{2}}{q_i}^{\frac{n-y_i}{2}}.$ The second equation comes from the independency of $\{\mathbf{S_i}\}_{i=1}^m$ which comes easily from independency of $\indexx[i][n][X]$. The second equation comes from the theorem of probability of position and time from the first chapter (\ref {thm-probability_position_time}).
+\end{proof}
