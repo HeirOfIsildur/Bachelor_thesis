@@ -1,17 +1,25 @@
 \chapter{Simple random walk in one dimension}
 
+\begin{rem}
+  First, let us properly introduce what a random walk is. After stating some of the basic definitions we will move to the core of this thesis which is to explore properties of occupation of a set times.
+\end{rem}
 
 \begin{defn}[Simple random walk in $\mathbb{Z}$]\label{defn-simple_random_walk_Z}
- Let $\{X_n\}_{n=0}^\pinf$ be a sequence of  \iid $\{-1,1\}$-valued random variables, that for some $p\in(0,1)$ and for $n\in \mathbb{N}$ satisfy $\pr \left( X_n=1 \right) =p$ and $\pr \left( X_n=-1 \right) =1-p=:q$.
+ Let $\{X_n\}_{n=1}^\pinf$ be a sequence of \iid random variables with values in $\{ -1, +1\}$, that $\forall n \in \N$ satisfy the conditions $\pr \left( X_n=1 \right) =p \in \left( 0,1 \right) $ and $\pr \left( X_n=-1 \right) =1-p=:q$.
 
  Let $S_0=0$ and $S_n=\suma[i][1][n]X_i$. We call the pair $ \left( \{S_n\}_{n=0}^\pinf, p \right) $ \emph{Simple random walk in $\mathbb{Z}$}.
 
- If $p=q=\h $, $ \left( \{S_n\}_{n=0}^\pinf, p \right) $ is called
- \emph{Symmetric simple random walk in $\mathbb{Z}$}.
+ In case that $p=q=\h$ we call the element $\{S_n\}_{n=0}^\pinf$ \emph{Symmetric simple random walk in $\mathbb{Z}$}.
 \end{defn}
+
 \begin{rem}
- Very often we refer to $n$ as time, $X_i$ as the i-th step and $S_n$ as position of the walk \intime $n$.
- In simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards and to $X_i=-1$ as i-th step was leftwards. If not stated otherwise, we assume that $S_0=0.$
+ Very often we refer to $n$ as \Time, $X_i$ as i-th step and $S_n$ as position \intime $n$.
+ While referng to simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards and to $X_i=-1$ as i-th step was leftwards. If it is not stated otherwise, we assume that $S_0=0.$
+\end{rem}
+
+\begin{rem}
+  The most important element in radnom walks is the probability of being in position $x$ \intime $n$.
+  In order to calculate such probability we have to firstly define what are even possible positions. For example it is impossible for the random walk to be in position $x$ at time $n$ if $x>n$ simply because there have not been enough steps to make it up to $x$. It is also impossible (given the preposition that $S_0=0$) that after even number of steps the random walk is in odd-numbered position and vice versa. Therefore we define the set of possible positions.
 \end{rem}
 
 \begin{defn}[Set of possible positions]\label{defn-set_all_possible_values}
@@ -31,67 +39,45 @@
 
 \end{thm}
 
-\begin{proof}
-  Consider random variables $\indikator{X_i=1}$, and
-  $\indikator{X_i=-1}$, and define new random variables
-  $R_n=\suma \indikator{X_i=1}, L_n=\suma \indikator{X_i=-1}$.  The
-  random variable $\indikator{X_i=1}$ can be interpreted as indicator
-  whether i-th step was rightwards. Then, $R_n$ is number of
-  rightwards steps and $L_n$ is number of leftwards steps. We can
-  easily see that $R_n+L_n=n$ and $R_n-L_n=S_n$.  Therefore we get by
-  adding these two equations $R_n=\frac{S_n+n}{2}.$
+\begin{rem}
+  While having the definition of set of possible positions it is easy to prove the theorem by finding random variable with alternative distribution in each step. By summing them we get a variable with binomial distribution and then we simply modify the result to get desired probability.
+\end{rem}
 
-  Clearly, $\indikator{X_i=1}$ has alternative distribution with
-  parameter $p$ (\textit{Alt(p)}). Hence, $R_n$ as a sum of \iid
-  random variables with distribution \textit{Alt(p)} has binomial
-  distribution with parameters $n$ and $p$ (\textit{Bi(n,p)}).
-  Therefore we get
-  $\pr \left(R_n=x \right) =\binom{n}{x}p^{x}q^{n-x}$, where we define
-  $\binom{a}{x}\dosad 0$ for $a \in \N, x\not\in \{0,1,\dots,n\}$.
-  Finally, for $a \in A_n$ we get
-  \[
-    \pr \left( S_n=x \right) =\pr\left( R_n=\frac{x+n}{2} \right) =
-    \binom{n}{\frac{x+n}{2}}p^{\frac{n+x}{2}}q^{\frac{n-x}{2}}.
-  \]
+\begin{proof}
+ Let us define new variables $r_i=\indikator{X_i=1}, l_i=\indikator{X_i=-1}, R_n=\suma r_i, L_n=\suma l_i$.
+ $r_i$ can be interpreted as indicator wether i-th step was rightwards. Then $R_n$ is number of rightwards steps and $L_n$ is number of leftwards steps. We can easily see that $R_n+L_n=n$ and $R_n-L_n=S_n$.
+ Therefore we get by adding these two equations $R_n=\frac{S_n+n}{2}.$
+
+ $r_i$ has alternative distribution with parameter $p$ (\textit{Alt(p)}). Therefore $R_n$ as a sum of \iid random variables with distribuion \textit{Alt(p)} has binomial distribution with parameters $n$ and $p$ (\textit{Bi(n,p)}).
+ Therefore we get $\pr \left(R_n=x \right) =\binom{n}{x}p^{x}q^{n-x}$. Where we define $\binom{a}{x}\dosad 0$ for $a \in \N, x\in \R \setminus \N$, $x<0$, $x>n$.
+ Therefore we get $\pr \left( S_n=x \right) =\pr\left( R_n=\frac{x+n}{2} \right) = \binom{n}{\frac{x+n}{2}}p^{\frac{n+x}{2}}q^{\frac{n-x}{2}}$.
 \end{proof}
+
+\begin{rem}
+  Following are three simple lemmata that simplify many calculations in the rest of thesis.
+\end{rem}
+
 \begin{lemma}[Spatial homogeneity]\label{lemma-spatial_homogeneity}
-  Let $n \in \N, a,b,j \in \Z.$ Then for all $b \in \mathbb Z$
-  \[
-    \pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_n=j+b \mid
-      S_0=a+b \right)
-  \]
+  Let $n \in \N, a,b,j \in \Z.$
+ $\pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_n=j+b \mid S_0=a+b \right) \forall b \in \Z$
 \end{lemma}
 
-\begin{proof} For any $j, a, b \in \mathbb Z$ holds
-  \[
-    \begin{split}
-      \pr \left( S_n=j \mid S_0=a \right) & =\pr \left( \suma X_i=j-a
-      \right)
-      =\pr \left( \suma X_i= \left( j+b \right) - \left( a+b \right) \right) \\
-      & =\pr \left( S_n=j+b \mid S_0=a+b \right).
-    \end{split}
- \]
+\begin{proof}
+ $\pr \left( S_n=j \mid S_0=a \right) =\pr \left( \suma X_i=j-a \right)\\
+ =\pr \left( \suma X_i= \left( j+b \right) - \left( a+b \right) \right)
+ =\pr \left( S_n=j+b \mid S_0=a+b \right).$
 \end{proof}
 
 
 \begin{lemma}[Temporal homogeneity]\label{lemma-temporal_homogeneity}
-  Let $n,m \in \N, a,j \in \Z.$ Then for all $m \in \mathbb N$
-  \[
-    \pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_{n+m}=j \mid
-      S_m=a \right)
-  \]
+  Let $n,m \in \N, a,j \in \Z.$
+ $\pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_{n+m}=j \mid S_m=a \right) \forall m \in \N$
 \end{lemma}
-\begin{proof} For any $j, a \in \mathbb Z$ and $m \in \mathbb N$
-  \[
-    \begin{split}
-      \pr \left( S_n=j \mid S_0=a \right) & =\pr \left( \suma X_i=j-a
-      \right)
-      =\pr \left( \suma[i][m+1][m+n]X_i=j-a \right)\\
-      & =\pr \left( S_{n+m}=j \mid S_m=a \right),
-    \end{split}
-  \]
-where the second equality follows from identical distribution of
-$\{X_n\}_{n=1}^{\pinf}.$
+\begin{proof}
+ $\pr \left( S_n=j \mid S_0=a \right) =\pr \left( \suma X_i=j-a \right)
+ =\pr \left( \suma[i][m+1][m+n]X_i=j-a \right)\\
+ =\pr \left( S_{n+m}=j \mid S_m=a \right).$
+ Where the second to last equation comes from identical distribution of $\{X_n\}_{n=1}^{\pinf}.$
 \end{proof}
 
 \begin{lemma}[Markov property]\label{lemma-markov_property}
@@ -99,11 +85,15 @@ $\{X_n\}_{n=1}^{\pinf}.$
  =\pr \left( S_n=j \mid S_m=a_m \right) $
 \end{lemma}
 \begin{proof}
- Once $S_m$ is known, then distribution of $S_n$ depends only on steps ~\\$X_{m+1}, X_{m+2}, \ldots X_n$ and therefore cannot be dependent on any information concerning values $X_1, X_2, \ldots, X_{m-1}$ and accordingly $S_1, S_2, \ldots, S_{m-1}.$
+ Because $\{X_n\}_{n=1}^\pinf$ is a sequence of independent variables, once $S_m$ is known, then distribution of $S_n$ depends only on steps ~\\$X_{m+1}, X_{m+2}, \ldots X_n$ and therefore cannot be dependent on any information concerning values $X_1, X_2, \ldots, X_{m-1}$ and accordingly $S_1, S_2, \ldots, S_{m-1}.$
 \end{proof}
 
-\begin{rem}\ce-přepsat nějak líp
- In symmetric random walk, everything can be counted by number of possible paths from point to point.
+\begin{rem}
+  Once having stated basic definitions we may succeed to ask ourselves questions about occupation of a set times. Let $a>0$. How many steps up to time $n$ does our walk spend above $a$ (in interval $[a,\pinf)$)? Similarly how many steps does the walk spend in interval $[-a,\pinf)?$
+\end{rem}
+
+\begin{rem}
+ While calculating probabilities in symmetric random walks the fact that $p=q=\h$ simplifies calculating because in stead of $p^{\frac{n+x}{2}}q^{\frac{n-x}{2}}$ we now have $2^{-n}.$ Therefore the probabilities only depend on $\binom{n}{\frac{x+n}{2}}$ which can be more generalized as it is in the following definition.
 \end{rem}
 
 \begin{defn}[Number of possible paths]\label{defn-number_possible_paths}
@@ -111,7 +101,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
  and $N_n^x \left( a,b \right) $ be number of possible paths from point $ \left( 0,a \right) $ to point $\left( n,b \right)$
  that visit point $\left(z,x\right)$ for some $z \in \jn.$
 \end{defn}
-\begin{thm}\label{thm-number_of_possible_paths}
+\begin{thm}[Number of possible paths]\label{thm-number_of_possible_paths}
  Let $a,b \in \Z, n \in \N$ then $N_n \left( a,b \right) =\binom{n}{\h \left(n+b-a \right)}.$
 \end{thm}
 \begin{proof}
@@ -130,6 +120,11 @@ $\{X_n\}_{n=1}^{\pinf}.$
  we get a path from point $\left( 0,a \right)$ to $ \left(n,b\right)$ which visits $0$ at point $k$.
  Because reflection is a bijective operation on sets of paths, we get the correspondence between the collections of such paths.
 \end{proof}
+
+\begin{rem}
+  Following is the definition of return to origin which is a very important term in this thesis because it will be used many times in this thesis. Let us imagine our aim is to calculate the probability that a random walk sp
+\end{rem}
+
 \begin{defn}[Return to origin]\label{defn-return_origin}
  \Lrw. Let $k \in \N$. We say a \emph{return to origin} occurred \intime $2k$ if $S_{2k}=0$. The probability that \intime $2k$ occured a return to origin shall be denoted by $u_{2k}$.
  We say that \intime $2k$ occurred \emph{first return to origin} if $S_1, S_2, \ldots S_{2k-1}\neq 0$ and $S_{2k}=0$.
@@ -143,7 +138,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \begin{proof}
  Let us call $N$ the number of paths we are refering to.
  Because the path ends at point $ \left( n,b \right) $, the first step has to be rightwards. Therefore we now have $N=N_{n-1} \left( 1,b \right) -N_{n-1}^0 \left( 1,b \right) \overset{\text{T}\ref{thm-reflection_principle}}{=}N_{n-1} \left( 1,b \right) -N_{n-1} \left( -1,b \right).$
- %The last equation was aquired using Reflection principle (\ref{thm-reflection_principle}).
+
 
  Therefore we now have:$
  N_{n-1} \left( 1,b \right) -N_{n-1} \left( -1,b \right) =\binom{n-1}{\frac{n}{2}+\frac{b}{2}-1}-\binom{n-1}{\frac{n}{2}+\frac{b}{2}}
