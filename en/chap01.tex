@@ -2,14 +2,15 @@
 
 
 \begin{defn}[Simple random walk in $\mathbb{Z}$]\label{defn-simple_random_walk_Z}
- Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables with values in $\{ -1, +1\}$, that $\forall n \in \N$ satisfy the conditions $\pr \left( X_n=1 \right) =p \in \left( 0,1 \right) $ and $\pr \left( X_n=-1 \right) =1-p=:q$.
+ Let $\{X_n\}_{n=0}^\pinf$ be a sequence of  \iid $\{-1,1\}$-valued random variables, that for some $p\in(0,1)$ and for $n\in \mathbb{N}$ satisfy $\pr \left( X_n=1 \right) =p$ and $\pr \left( X_n=-1 \right) =1-p=:q$.
 
  Let $S_0=0$ and $S_n=\suma[i][1][n]X_i$. We call the pair $ \left( \{S_n\}_{n=0}^\pinf, p \right) $ \emph{Simple random walk in $\mathbb{Z}$}.
 
- In case that $p=q=\h $ we call the pair $ \left( \{S_n\}_{n=0}^\pinf, p \right) $ \emph{Symmetric simple random walk in $\mathbb{Z}$}.
+ If $p=q=\h $, $ \left( \{S_n\}_{n=0}^\pinf, p \right) $ is called
+ \emph{Symmetric simple random walk in $\mathbb{Z}$}.
 \end{defn}
 \begin{rem}
- Very often we refer to $n$ as \Time, $X_i$ as i-th step and $S_n$ as position \intime $n$.
+ Very often we refer to $n$ as time, $X_i$ as the i-th step and $S_n$ as position of the walk \intime $n$.
  In simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards and to $X_i=-1$ as i-th step was leftwards. If not stated otherwise, we assume that $S_0=0.$
 \end{rem}
 
@@ -31,35 +32,66 @@
 \end{thm}
 
 \begin{proof}
- Let us define new variables $r_i=\indikator{X_i=1}, l_i=\indikator{X_i=-1}, R_n=\suma r_i, L_n=\suma l_i$.
- $r_i$ can be interpreted as indicator wether i-th step was rightwards. Then $R_n$ is number of rightwards steps and $L_n$ is number of leftwards steps. We can easily see that $R_n+L_n=n$ and $R_n-L_n=S_n$.
- Therefore we get by adding these two equations $R_n=\frac{S_n+n}{2}.$
+  Consider random variables $\indikator{X_i=1}$, and
+  $\indikator{X_i=-1}$, and define new random variables
+  $R_n=\suma \indikator{X_i=1}, L_n=\suma \indikator{X_i=-1}$.  The
+  random variable $\indikator{X_i=1}$ can be interpreted as indicator
+  whether i-th step was rightwards. Then, $R_n$ is number of
+  rightwards steps and $L_n$ is number of leftwards steps. We can
+  easily see that $R_n+L_n=n$ and $R_n-L_n=S_n$.  Therefore we get by
+  adding these two equations $R_n=\frac{S_n+n}{2}.$
 
- $r_i$ has alternative distribution with parameter $p$ (\textit{Alt(p)}). Therefore $R_n$ as a sum of \iid random variables with distribuion \textit{Alt(p)} has binomial distribution with parameters $n$ and $p$ (\textit{Bi(n,p)}).
- Therefore we get $\pr \left(R_n=x \right) =\binom{n}{x}p^{x}q^{n-x}$. Where we define $\binom{a}{x}\dosad 0$ for $a \in \N, x\in \R \setminus \N$, $x<0$, $x>n$.
- Therefore we get $\pr \left( S_n=x \right) =\pr\left( R_n=\frac{x+n}{2} \right) = \binom{n}{\frac{x+n}{2}}p^{\frac{n+x}{2}}q^{\frac{n-x}{2}}$.
+  Clearly, $\indikator{X_i=1}$ has alternative distribution with
+  parameter $p$ (\textit{Alt(p)}). Hence, $R_n$ as a sum of \iid
+  random variables with distribution \textit{Alt(p)} has binomial
+  distribution with parameters $n$ and $p$ (\textit{Bi(n,p)}).
+  Therefore we get
+  $\pr \left(R_n=x \right) =\binom{n}{x}p^{x}q^{n-x}$, where we define
+  $\binom{a}{x}\dosad 0$ for $a \in \N, x\not\in \{0,1,\dots,n\}$.
+  Finally, for $a \in A_n$ we get
+  \[
+    \pr \left( S_n=x \right) =\pr\left( R_n=\frac{x+n}{2} \right) =
+    \binom{n}{\frac{x+n}{2}}p^{\frac{n+x}{2}}q^{\frac{n-x}{2}}.
+  \]
 \end{proof}
 \begin{lemma}[Spatial homogeneity]\label{lemma-spatial_homogeneity}
-  Let $n \in \N, a,b,j \in \Z.$
- $\pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_n=j+b \mid S_0=a+b \right) \forall b \in \Z$
+  Let $n \in \N, a,b,j \in \Z.$ Then for all $b \in \mathbb Z$
+  \[
+    \pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_n=j+b \mid
+      S_0=a+b \right)
+  \]
 \end{lemma}
 
-\begin{proof}
- $\pr \left( S_n=j \mid S_0=a \right) =\pr \left( \suma X_i=j-a \right)\\
- =\pr \left( \suma X_i= \left( j+b \right) - \left( a+b \right) \right)
- =\pr \left( S_n=j+b \mid S_0=a+b \right).$
+\begin{proof} For any $j, a, b \in \mathbb Z$ holds
+  \[
+    \begin{split}
+      \pr \left( S_n=j \mid S_0=a \right) & =\pr \left( \suma X_i=j-a
+      \right)
+      =\pr \left( \suma X_i= \left( j+b \right) - \left( a+b \right) \right) \\
+      & =\pr \left( S_n=j+b \mid S_0=a+b \right).
+    \end{split}
+ \]
 \end{proof}
 
 
 \begin{lemma}[Temporal homogeneity]\label{lemma-temporal_homogeneity}
-  Let $n,m \in \N, a,j \in \Z.$
- $\pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_{n+m}=j \mid S_m=a \right) \forall m \in \N$
+  Let $n,m \in \N, a,j \in \Z.$ Then for all $m \in \mathbb N$
+  \[
+    \pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_{n+m}=j \mid
+      S_m=a \right)
+  \]
 \end{lemma}
-\begin{proof}
- $\pr \left( S_n=j \mid S_0=a \right) =\pr \left( \suma X_i=j-a \right)
- =\pr \left( \suma[i][m+1][m+n]X_i=j-a \right)\\
- =\pr \left( S_{n+m}=j \mid S_m=a \right).$
- Where the second to last equation comes from identical distribution of $\{X_n\}_{n=1}^{\pinf}.$
+\begin{proof} For any $j, a \in \mathbb Z$ and $m \in \mathbb N$
+  \[
+    \begin{split}
+      \pr \left( S_n=j \mid S_0=a \right) & =\pr \left( \suma X_i=j-a
+      \right)
+      =\pr \left( \suma[i][m+1][m+n]X_i=j-a \right)\\
+      & =\pr \left( S_{n+m}=j \mid S_m=a \right),
+    \end{split}
+  \]
+where the second equality follows from identical distribution of
+$\{X_n\}_{n=1}^{\pinf}.$
 \end{proof}
 
 \begin{lemma}[Markov property]\label{lemma-markov_property}
