@@ -15,11 +15,11 @@
 
 \begin{rem}
  Very often we refer to $n$ as \Time, $X_i$ as the i-th step and $S_n$ as position of the walk \intime $n$.
- While referng to simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards and to $X_i=-1$ as i-th step was leftwards. If it is not stated otherwise, we assume that $S_0=0.$
+ While referring to simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards and to $X_i=-1$ as i-th step was leftwards. If it is not stated otherwise, we assume that $S_0=0.$
 \end{rem}
 
 \begin{rem}
-  The most important element in radnom walks is the probability of being in position $x$ \intime $n$.
+  The most important element in random walks is the probability of being in position $x$ \intime $n$.
   In order to calculate such probability we have to firstly define what are even possible positions. For example it is impossible for the random walk to be in position $x$ at time $n$ if $x>n$ simply because there have not been enough steps to make it up to $x$. It is also impossible (given the preposition that $S_0=0$) that after even number of steps the random walk is in odd-numbered position and vice versa. Therefore we define the set of possible positions.
 \end{rem}
 
@@ -148,19 +148,21 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \end{thm}
 \begin{proof}
  Each path from $ \left( 0,-a \right) $ to $ \left( n,b \right) $ has to intersect $y=0$-axis at least once at some point.
- Let $k$ be the \Time of earliest intersection with $x$-axis. By reflexing the segment from $\left( 0,-a \right)$ to $\left( k,0 \right)$ in the $x$-axis and letting the segment from $\left(k,0\right)$ to $\left(n,b\right)$ be the same,
+ Let $k$ be the \Time of earliest intersection with $x$-axis. By reflecting the segment from $\left( 0,-a \right)$ to $\left( k,0 \right)$ in the $x$-axis and letting the segment from $\left(k,0\right)$ to $\left(n,b\right)$ be the same,
  we get a path from point $\left( 0,a \right)$ to $ \left(n,b\right)$ which visits $0$ at point $k$.
  Because reflection is a bijective operation on sets of paths, we get the correspondence between the collections of such paths.
 \end{proof}
 
 \begin{rem}
-  Following is the definition of return to origin which is a very important term in this thesis because it will be used many times in this thesis. Let us imagine our aim is to calculate the probability that a random walk sp
+  Following is the definition of return to origin which is a very important term in this thesis because it will be used many times in this thesis.
+  Let us come back to our question.
+  While calculating the number of steps the walk spends in interval $[a,\pinf)$ we calculate our first passage through $a$ and then set $a$ as a new origin and use
 \end{rem}
 
 \begin{defn}[Return to origin]\label{defn-return_origin}
- \Lrw. Let $k \in \N$. We say a \emph{return to origin} occurred \intime $2k$ if $S_{2k}=0$. The probability that \intime $2k$ occured a return to origin shall be denoted by $u_{2k}$.
+ \Lrw. Let $k \in \N$. We say a \emph{return to origin} occurred \intime $2k$ if $S_{2k}=0$. The probability that \intime $2k$ occurred a return to origin shall be denoted by $u_{2k}$.
  We say that \intime $2k$ occurred \emph{first return to origin} if $S_1, S_2, \ldots S_{2k-1}\neq 0$ and $S_{2k}=0$.
- The probability that \intime $2k$ occured first return to origin shall be denoted by $f_{2k}$. By definition $f_0=0$.
+ The probability that \intime $2k$ occurred first return to origin shall be denoted by $f_{2k}$. By definition $f_0=0$.
  Let $\alpha{2n} \left( 2k \right) $ denote $u_{2k}u_{2 \left( n-k \right) }$
 \end{defn}
 \begin{thm}[Ballot theorem]\label{thm-ballot_theorem}
@@ -168,7 +170,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
  Number of paths from point $ \left( 0,0 \right) $ to point $ \left( n,b \right) $ which do not return to origin is equal to $\frac{b}{n}N_n \left( 0,b \right) $
 \end{thm}
 \begin{proof}
- Let us call $N$ the number of paths we are refering to.
+ Let us call $N$ the number of paths we are referring to.
  Because the path ends at point $ \left( n,b \right) $, the first step has to be rightwards. Therefore we now have $N=N_{n-1} \left( 1,b \right) -N_{n-1}^0 \left( 1,b \right) \overset{\text{T}\ref{thm-reflection_principle}}{=}N_{n-1} \left( 1,b \right) -N_{n-1} \left( -1,b \right).$
 
 
@@ -202,7 +204,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
  \pr \left( S_n=b \right) $.
 
  Now let $r\geq 1, b<r$. $N_n^r \left( 0,b \right) $ stands for number of paths from point $ \left( 0,0 \right) $ to point $ \left( n,b \right) $ which reach up to $r$.
- Let $k \in \jn$ denote the first \Time we reach $r$. By reflection principle (\ref{thm-reflection_principle}) , we can reflex the segment from $\left(k,r\right)$ to $ \left( n,b \right) $ in the axis:$y=r$.
+ Let $k \in \jn$ denote the first \Time we reach $r$. By reflection principle (\ref{thm-reflection_principle}) , we can reflect the segment from $\left(k,r\right)$ to $ \left( n,b \right) $ in the axis:$y=r$.
  Therefore we now have path from $ \left( 0,0 \right) $ to $ \left( n,2r-b \right) $ and we get that $N_n^r \left( 0,b \right) =N_n \left( 0,2r-b \right) $. $\pr \left( S_n=b, M_n^+\geq r \right) =N_n^r \left( 0,b \right) p^{\frac{n+b}{2}}q^{\frac{n-b}{2}}=
  N_n \left( 0,2r-b \right) p^{\frac{n+ \left( 2r-b \right) }{2}}q^{\frac{n- \left( 2r-b \right) }{2}}p^{\frac{n+b}{2}}q^{\frac{n-b}{2}}p^{b-r}q^{r-b}= \left( \frac{q}{p} \right) ^{r-b}\pr \left( S_n=2r-b \right).$
 \end{proof}
@@ -308,7 +310,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
  =\h \h ^{2n-1} \left( \binom{2n-1}{n+r-1}-\binom{2n-1}{n+r} \right).$ Where $*$ comes from decomposition: $[S_{2n}=2r]=[S_{2n}=2r,S_1\cdot S_2 \cdot \ldots \cdot S_2n \neq 0]\cup[S_{2n}=2r,S_1\cdot S_2 \cdot \ldots \cdot S_2n=0].$
 
  Because of the fact that the negative parts of $r$-th terms cancel against the positive parts of
- $\left( r+1 \right) $-st terms and the sume reduces to just $\h \h ^{2n-1}\binom{2n-1}{n}
+ $\left( r+1 \right) $-st terms and the sum reduces to just $\h \h ^{2n-1}\binom{2n-1}{n}
  =\h \cdot 2 \cdot \h ^{2n}\binom{2n-1}{n}
  =\h \h ^{2n}\frac{2 \left( 2n-1 \right) !}{n! \left( n-1 \right) !}
  =\h \h ^{2n}\frac{ \left( 2n \right) !}{n!n!}=\h \h ^{2n}\binom{2n}{n}
@@ -379,7 +381,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \end{proof}
 \begin{thm}[Arcsine law for last visits]\label{thm-arcsine_last_visits}
  Let $k,n \in \N, k\leq n$.
- The probability that up to \Time $2n$ the last return to origin occured \intime $2k$ is given by
+ The probability that up to \Time $2n$ the last return to origin occurred \intime $2k$ is given by
  $\alpha_{2n} \left( 2k \right) =u_{2n}u_{2 \left( n-k \right) }$.
 \end{thm}
 \begin{proof}
@@ -413,7 +415,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \begin{proof}%My own proof
  Firstly let us start with degenerate cases. $\beta_{2n} \left( 2n \right)\\
  =\pr \left( \suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2n \right)
- \overset{\text{L}\ref{lemma-probability_above_or_on}}{=}\pr \left( S_1, S_2, \ldots, S_{2n}\geq 0 \right) =*u_{2n}$. By symmetry $\beta_{2n} \left( 0 \right) =\beta_{2n} \left( 2n \right) =u_{2n}.$
+ \overset{\text{L}\ref{lemma-probability_above_or_on}}{=}\pr \left( S_1, S_2, \ldots, S_{2n}\geq 0 \right) =u_{2n}$. By symmetry $\beta_{2n} \left( 0 \right) =\beta_{2n} \left( 2n \right) =u_{2n}.$
 
  Let $1 \leq k \leq v-1$, where $0\leq v \leq n$. For such $k$ stands equation:
  $
@@ -431,7 +433,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
  =\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right).$
  Where $*$ comes from the disjoint decomposition of $[S_1, S_2, \ldots, S_{2r-1}\neq 0]=[S_1, S_2, \ldots, S_{2r-1}> 0]\cup[S_1, S_2, \ldots, S_{2r-1}<0]$ and $**$ comes from using the condition that up to time $2r$ the steps were on the positive/negative sides.
 
- Now let us proceed by induction. Case for $v=1$ is trivial because it implies degenerous case from *f. Let the statment be true for $v \leq n-1$, then $\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)\\
+ Now let us proceed by induction. Case for $v=1$ is trivial because it implies the degenerate case. Let the statement be true for $v \leq n-1$, then $\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)\\
  \induk \suma[r][1][n] \h f_{2r} \alpha_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\alpha_{2n-2r}\left(2k-2r\right)\\
  \overset{\text{D}\ref{defn-return_origin}}{=} \suma[r][1][n] \h f_{2r} u_{2k}u_{2n-2r-2k}+\suma[r][1][n] \h f_{2r} u_{2k-2r}u_{2n-2k}\\
  = \h u_{2k} \suma[r][1][n] f_{2r} u_{2n-2r-2k}+ \h u_{2n-2k} \suma[r][1][n] f_{2r} u_{2k-2r}u_{2n-2k}\\
@@ -440,7 +442,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \end{proof}
 \begin{defn}[Change of a sign]
  \Lrw. We say that \intime $n$ occurred a change of sign if if $S_{n-1}\cdot S_{n+1}=-1$ in other words if $\left(S_{n-1}=+1 \land S_{n+1}=-1\right) \lor \left(S_{n-1}=-1 \land S_{n+1}=+1\right).$
- We shall denote the probability that up to \Time $n$ occured $r$ changes of sign by $\xi_{r, n}$.
+ We shall denote the probability that up to \Time $n$ occurred $r$ changes of sign by $\xi_{r, n}$.
 \end{defn}
 \begin{thm}[Change of a sign]
  \Lrws. The probability $\xi_{r,2n+1}=2\pr\left( S_{2n+1}=2r+1 \right)$
@@ -513,7 +515,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
  =\pr\left( S_1=+1, S_2=0\right)
  =\delta_2 \left(2 \right).$
 
- Let the statment be true for all $l\leq n-1$. In that case $\delta_{2(n-l)}\left( 2k \right)=\frac{u_{2(n-l)}}{n-l+1} \forall k \in \{1,2,\ldots, n-l\}$.
+ Let the statement be true for all $l\leq n-1$. In that case $\delta_{2(n-l)}\left( 2k \right)=\frac{u_{2(n-l)}}{n-l+1} \forall k \in \{1,2,\ldots, n-l\}$.
  We want to show that $\delta_{2n}=\frac{u_{2n}}{n+1}$.
 
  Let us calculate $\delta_{2n}
