@@ -24,12 +24,12 @@
 \end{rem}
 
 \begin{defn}[Set of possible positions]\label{defn-set_all_possible_values}
- \Lrw. We call the set $A_n=\{z \in \Z; \abs{z}\leq n, \frac{z+n}{2}\in \Z \}$ \emph{set of all possible positions} of random walk \rw \intime $n$.
+ \Lrw. We call the set $A_n=\{z \in \Z; \abs{z}\leq n, \frac{z+n}{2}\in \Z \}$ \emph{set of all possible positions} of random walk \rw\ \intime $n$.
 \end{defn}
 
 
 \begin{thm}[Probability of position $x$ \intime $n$]\label{thm-probability_position_time}
- \Lrw and $A_n$ its set of possible positions.
+ \Lrw\ and $A_n$ its set of possible positions.
  \[
  \pr \left( S_n=x \right) =
  \begin{cases}
@@ -69,11 +69,11 @@
 \end{proof}
 
 \begin{rem}
-  Following are three simple lemmata that simplify many calculations in the rest of thesis. After proving them we can ask
+  Following are three simple lemmata that simplify many calculations in the rest of thesis. After proving them we can ask ourselves questions regarding the thesis aims.
 \end{rem}
 
 \begin{lemma}[Spatial homogeneity]\label{lemma-spatial_homogeneity}
-  Let $n \in \N, a,b,j \in \Z.$ Then for all $b \in \mathbb Z$
+  \Lrw\ and $n \in \N, a,b,j \in \Z.$ Then for all $b \in \mathbb Z$
 \[
   \pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_n=j+b \mid
     S_0=a+b \right)
@@ -93,7 +93,7 @@
 
 
 \begin{lemma}[Temporal homogeneity]\label{lemma-temporal_homogeneity}
-  Let $n,m \in \N, a,j \in \Z.$ Then for all $m \in \mathbb N$
+  \Lrw\ and $n,m \in \N, a,j \in \Z.$ Then for all $m \in \mathbb N$
    \[
      \pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_{n+m}=j \mid
        S_m=a \right)
@@ -112,7 +112,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \end{proof}
 
 \begin{lemma}[Markov property]\label{lemma-markov_property}
- Let $n,m \in \N, n\geq m, a_i \in \Z, i\in \N$. Then
+ \Lrw\ and $n,m \in \N, n\geq m, a_i \in \Z, i\in \N$. Then
  \[
      \pr \left( S_n=j \mid S_0=a_0, S_1=a_1, \ldots, S_m=a_m \right)
      =\pr \left( S_n=j \mid S_m=a_m \right)
@@ -131,7 +131,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \end{rem}
 
 \begin{defn}[Number of possible paths]\label{defn-number_possible_paths}
- Let $N_n \left( a,b \right) $ be \emph{number of posssible paths} of random walk \rw from point $ \left( 0,a \right) $ to point $ \left( n,b \right)$
+ Let $N_n \left( a,b \right) $ be \emph{number of posssible paths} of random walk \rw\ from point $ \left( 0,a \right) $ to point $ \left( n,b \right)$
  and $N_n^x \left( a,b \right) $ be number of possible paths from point $ \left( 0,a \right) $ to point $\left( n,b \right)$
  that visit point $\left(z,x\right)$ for some $z \in \jn.$
 \end{defn}
@@ -171,7 +171,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
  \Lrw. Let $k \in \N$. We say a \emph{return to origin} occurred \intime $2k$ if $S_{2k}=0$. The probability that \intime $2k$ occurred a return to origin shall be denoted by $u_{2k}$.
  We say that \intime $2k$ occurred \emph{first return to origin} if $S_1, S_2, \ldots S_{2k-1}\neq 0$ and $S_{2k}=0$.
  The probability that \intime $2k$ occurred first return to origin shall be denoted by $f_{2k}$. We define $f_0 \dosad 0$.
- Let $\alpha{2n} \left( 2k \right) $ denote $u_{2k}u_{2 \left( n-k \right) }$
+ Let $\alpha_{2n} \left( 2k \right) $ denote $u_{2k}u_{2n-2k}.$
 \end{defn}
 \begin{thm}[Ballot theorem]\label{thm-ballot_theorem}
  Let $n,b \in N$
@@ -203,7 +203,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
    The name \textit{Ballot theorem} comes from the question: In a ballot where candidate $A$ receives $p$ votes and candidate $B$ receives $q$ votes with $p > q$, what is the probability that $A$ had been strictly ahead of B throughout the whole count?
  \end{rem}
 \begin{defn}[Maximum and minimum]\label{defn-max}
-  \Lrw. $M_n^+\dosad \max \{S_i, i\in \jn\}$ is called \emph{maximum of random walk \rw} \emph{up to time $n$} and $M_n^-\dosad \min \{S_i, i\in \jn\}$ is called \emph{minimum of random walk \rw up to time $n.$} $M_n=\max{M_n^+, -M_n^-}$ is called \emph{absolute maximum of random walk \rw up to time $n.$}
+  \Lrw. $M_n^+\dosad \max \{S_i, i\in \jn\}$ is called \emph{maximum of random walk \rw} \emph{up to time $n$} and $M_n^-\dosad \min \{S_i, i\in \jn\}$ is called \emph{minimum of random walk \rw\ up to time $n.$} $M_n=\max{M_n^+, -M_n^-}$ is called \emph{absolute maximum of random walk \rw\ up to time $n.$}
 \end{defn}
 \begin{thm}[Probability of maximum up to \Time $n$]\label{thm-probability_maximum_upto_time}
  \Lrw.
@@ -234,10 +234,10 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \end{proof}
 
 \begin{defn}[Walk reaching new maximum at particular \Time]\label{defn-new_maximum}
- Let $n,b\in \N,b>0$. We say that \emph{the walk reached new maximum $b$ \intime $n$} if $M_{n-1}^+=S_{n-1}=b-1, S_n=b$. We denote such probability by $f_b \left( n \right).$
+ \Lrw\ $n,b\in \N,b>0$. We say that \emph{the walk reached new maximum $b$ \intime $n$} if $M_{n-1}^+=S_{n-1}=b-1, S_n=b$. We denote such probability by $f_b \left( n \right).$
 \end{defn}
 \begin{thm}[Probability of reaching new maximum $b$ \intime $n$]\label{thm-probability_new_maximum}
- Let $n,b \in \N, b>0$ then
+ \Lrw\ $n,b \in \N, b>0$ then
  \[
   f_b \left( n \right) =\frac{b}{n}\pr \left( S_n=b \right).
  \]
@@ -262,7 +262,6 @@ $\{X_n\}_{n=1}^{\pinf}.$
   \]
  Where $*$ comes from the fact that the event $[M_{n-1}\geq b-1]$ can be split into two disjoint events:
  $[M_{n-1}\geq b-1]=[M_{n-1}\geq b]\cup [M_{n-1}=b-1].$
- Therefore $\pr\left(M_{n-1}\geq b-1\right)=\pr\left(M_{n-1}\geq b\right)+\pr\left(M_{n-1}=b-1\right).$
 
  Hence: $\pr\left(M_{n-1}=b-1\right)=\pr\left(M_{n-1}\geq b-1\right)-\pr\left(M_{n-1}\geq b\right).$ The same applies for the probability $\pr\left(M_{n-1}=b-1, S_{n-1}=b-1\right)
  $
@@ -296,7 +295,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \end{proof}
 
 \begin{lemma}[Main lemma]\label{lemma-main_lemma}
- Let \rw be a symmetrical random walk, then
+ Let \rw\ be a symmetrical random walk, then
  \[
    \pr \left( S_1, S_2, \ldots, S_{2n}\neq 0 \right) =\pr \left( S_{2n}=0 \right).
   \]
@@ -316,20 +315,22 @@ $\{X_n\}_{n=1}^{\pinf}.$
   \]
   Where $*$ comes from the fact that the random walk is symmetric and $**$ comes from the fact that the positive part of $i$-th term cancels against the negative part of $i+1$-st term.
 \end{proof}
+\begin{comment}
 \begin{thm}\label{thm-return_origin_upto_time}
  \Lrws. The probability that the last return to origin up to \Time $2n$ occurred \intime $2k$
- is $\pr \left( S_{2k}=0 \right) \pr \left( S_{2 \left( n-k \right) }=0 \right) $.
+ is $\pr \left( S_{2k}=0 \right) \pr \left( S_{2n-2k}=0 \right) $.
 \end{thm}
 \begin{proof}
  \[
   \begin{split}
-     & \alpha_{2n} \left( 2k \right) =u_{2k}u_{2 \left( n-k \right) }
+     & \alpha_{2n} \left( 2k \right) =u_{2k}u_{2n-2k}
      =\pr \left( S_{2k}=0 \right) \pr \left( S_{2k+1}, S_{2k+2}, \ldots, S_{2n}\neq 0 \mid S_{2k}=0 \right)\\
-     & \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\pr \left( S_{2k}=0 \right) \pr \left( S_{1}, S_{2}, \ldots, S_{2 \left( n-k \right) }\neq 0 \right)
-     \overset{\text{T}\ref{lemma-main_lemma}}{=}\pr \left( S_{2k}=0 \right) \pr \left( S_{2 \left( n-k \right) }=0 \right).
+     & \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\pr \left( S_{2k}=0 \right) \pr \left( S_{1}, S_{2}, \ldots, S_{2n-2k}\neq 0 \right)
+     \overset{\text{T}\ref{lemma-main_lemma}}{=}\pr \left( S_{2k}=0 \right) \pr \left( S_{2n-2k}=0 \right).
   \end{split}
  \]
 \end{proof}
+\end{comment}
 \begin{thm}\label{thm-probability_position_b_at_time_n_without_return_origin}
  \Lrws\ and $b \in \Z,$ then the following equation holds.
  \[\pr \left( S_1, S_2, \ldots, S_n\neq 0, S_n=b \right)
@@ -370,7 +371,10 @@ $\{X_n\}_{n=1}^{\pinf}.$
     \end{split}
   \]
 
-     Where $*$ comes from the disjoint decomposition: $[S_{2n}=2r]=[S_{2n}=2r,S_1\cdot S_2 \cdot \ldots \cdot S_{2n} \neq 0]\cup[S_{2n}=2r,S_1\cdot S_2 \cdot \ldots \cdot S_{2n}=0].$
+     Where $*$ comes from the disjoint decomposition:
+     \[
+     [S_{2n}=2r]=[S_{2n}=2r,S_1\cdot S_2 \cdot \ldots \cdot S_{2n} \neq 0]\cup[S_{2n}=2r,S_1\cdot S_2 \cdot \ldots \cdot S_{2n}=0].
+     \]
 
  Because of the fact that the negative parts of $r$-th terms cancel against the positive parts of
  $\left( r+1 \right) $-st terms and the sum reduces to just
@@ -417,11 +421,9 @@ $\{X_n\}_{n=1}^{\pinf}.$
     & =\h \pr \left( S_1, S_2 \ldots, S_{2n}\geq 0 \right).
   \end{split}
  \]
- Because $[S_{2n-1}\geq 0]=[S_{2n-1}\geq 1]=[S_{2n}\geq 0].$
-
- Therefore $\pr \left( S_1, S_2 \ldots, S_{2n}\geq 0 \right)=\pr\left(S_{2n}=0 \right).$
+ Where the last equation comes from the fact that $[S_{2n-1}\geq 0]=[S_{2n-1}\geq 1]=[S_{2n}\geq 0].$
 \end{proof}
-\begin{thm}[First return as difference of returns-NEJDE SE NA TO ODKÁZAT-NECHÁPU PROČ]\label{thm-f_2n}
+\begin{thm}[First return as difference of returns]\label{thm-f_2n}
   \Lrws. The following equation holds:
  \[
  f_{2n}=u_{2n-2}-u_{2n}
@@ -458,7 +460,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
  \]
  Therefore
  \[
- f_{2n} \overset{\todo{nejde odkaz}\text{L}\ref{thm-f_2n}}{=} u_{2n-2}-u_{2n}=u_{2n} \left( \frac{2n}{2n-1}-1 \right)
+ f_{2n} \overset{\text{L}\ref{thm-f_2n}}{=} u_{2n-2}-u_{2n}=u_{2n} \left( \frac{2n}{2n-1}-1 \right)
  =u_{2n}\frac{1}{2n-1}.
  \]
 \end{proof}
@@ -475,7 +477,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
     \begin{split}
       & \pr \left(S_{2n}=0\right)
       \ltp \suma[r][1][n] \pr \left(S_{2n}=0,S_1, S,2, \ldots, S_{2r-1}\neq 0, S_{2r}=0\right)\\
-      & \gpr \suma[r][1][n] \pr \left(S_{2n}=0 \Mid S_1, S,2, \ldots, S_{2r-1}\neq 0 S_{2r}=0\right)\pr \left(S_1, S,2, \ldots, S_{2r-1}\neq 0 S_{2r}=0\right)\\
+      & \gpr \suma[r][1][n] \pr \left(S_{2n}=0 \Mid S_1, S,2, \ldots, S_{2r-1}\neq 0 S_{2r}=0\right)\pr \left(S_1, S,2, \ldots, S_{2r-1}\neq 0, S_{2r}=0\right)\\
       & \overset{\text{L}\ref{lemma-markov_property} \text{,D}\ref{defn-return_origin}}{=}\suma[r][1][n] \pr \left(S_{2n}=0 \Mid S_{2r}=0\right) f_{2r}
       \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\suma[r][1][n]
       \pr \left(S_{2n-2r}=0\right) f_{2r}\overset{\text{D}\ref{defn-return_origin}}{=}
@@ -484,66 +486,80 @@ $\{X_n\}_{n=1}^{\pinf}.$
   \]
 \end{proof}
 \begin{thm}[Arcsine law for last visits]\label{thm-arcsine_last_visits}
- Let $k,n \in \N, k\leq n$.
+ \Lrws\ $k,n \in \N, k\leq n$.
  The probability that up to \Time $2n$ the last return to origin occurred \intime $2k$ is given by
- $\alpha_{2n} \left( 2k \right) =u_{2n}u_{2 \left( n-k \right) }$.
+\[
+\pr\left( S_{2n}=0\right)\pr\left( S_{2n-2k}=0\right).
+\]
 \end{thm}
 \begin{proof}
  The probability involved can be rewritten as:
-
- $\pr \left( S_{2k+1}, S_{2k+2}, \ldots, S_{2n}\neq 0, S_{2k}=0 \right)\\
- \gpr \pr \left( S_{2k+1}, S_{2k+2}, \ldots, S_{2n}\neq 0\mid S_{2k}=0 \right) \pr \left( S_{2k}=0 \right)\\
- \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\pr \left( S_{1}, S_{2}, \ldots, S_{2 \left( n-k \right) }\neq 0 \right) \pr \left( S_{2k}=0 \right)\\
- \overset{\text{T}\ref{thm-probability_no_return}}{=}u_{2 \left( n-k \right) }u_{2k}$
-
+ \[
+  \begin{split}
+    & \pr \left(S_{2k}=0, S_{2k+1}, S_{2k+2}, \ldots, S_{2n} \neq 0\right)\\
+    & \gpr \pr \left( S_{2k+1}, S_{2k+2}, \ldots, S_{2n}\neq 0\mid S_{2k}=0 \right) \pr \left( S_{2k}=0 \right)\\
+    & \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\pr \left( S_{1}, S_{2}, \ldots, S_{2n-2k}\neq 0 \right) \pr \left( S_{2k}=0 \right)
+    \overset{\text{T}\ref{thm-probability_no_return}}{=}u_{2n-2k}u_{2k}
+  \end{split}
+\]
 \end{proof}
 \begin{defn}[Time spend on the positive and negative sides]\label{defn-time_spent_positive_side}
- \Lrw. We say that the walk spent $\tau$ time units of $n$ on the positive side if $\suma \indikator{S_i>0 \lor S_{i-1}>0}=\tau$.
+
+ \Lrw. We say that \emph{the walk spent $\tau$ time units of $n$ on the positive side} if $\suma \indikator{S_i>0 \lor S_{i-1}>0}=\tau.$
  Let $\beta_{n} \left( \tau \right) $ denote the probability of such an event.
- We say that the walk spent $\zeta$ time units of $n$ on the negative side if
- $\suma\indikator{S_i<0 \lor S_{i-1}<0}=\zeta$.
+ Similarly, we say that \emph{the walk spent $\zeta$ time units of $n$ on the negative side} if
+ $\suma\indikator{S_i<0 \lor S_{i-1}<0}=\zeta.$
 \end{defn}
 
 
-
-
-
-
-
-
-
-
 \begin{thm}[Arcsine law for sojourn times-OWN PROOF]\label{thm-arcsine_sojourn_times}
- \Lrws. Then $\beta_{2n} \left( 2k \right) =\alpha_{2n} \left( 2k \right) $.
+ \Lrws. Then
+ \[
+ \beta_{2n} \left( 2k \right) =\alpha_{2n} \left( 2k \right)=\pr\left( S_{2n}=0\right)\pr\left( S_{2n-2k}=0\right).
+ \]
 \end{thm}
 \begin{proof}%My own proof
- Firstly let us start with degenerate cases. $\beta_{2n} \left( 2n \right)\\
- =\pr \left( \suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2n \right)
- \overset{\text{L}\ref{lemma-probability_above_or_on}}{=}\pr \left( S_1, S_2, \ldots, S_{2n}\geq 0 \right) =u_{2n}$. By symmetry $\beta_{2n} \left( 0 \right) =\beta_{2n} \left( 2n \right) =u_{2n}.$
+ Firstly let us start with degenerate cases.
+ \[
+    \beta_{2n} \left( 2n \right)
+    =\pr \left( \suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2n \right)
+    \overset{\text{L}\ref{lemma-probability_above_or_on}}{=}\pr \left( S_1, S_2, \ldots, S_{2n}\geq 0 \right) =u_{2n}.
+ \]
+ By symmetry $\beta_{2n} \left( 0 \right) =\beta_{2n} \left( 2n \right).$
 
- Let $1 \leq k \leq v-1$, where $0\leq v \leq n$. For such $k$ stands equation:
- $
- \beta_{2n} \left( 2k \right) \overset{\text{D}\ref{defn-time_spent_positive_side}}{=} \pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \right)\\
- \ltp \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0 \right)\\
- \overset{*}{=} \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
- +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
- \gpr \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
- \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
- +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
- \pr \left( S_1, S_2, \ldots, S_{2r-1}>0, S_{2r}=0 \right)\\
- \overset{**}{=} \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_{2r}=0 \right)\\
- + \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r \Mid S_{2r}=0 \right)\\
- \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=} \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k\right)+ \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r\right)
- =\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right).$
+ Let $1 \leq k \leq v-1$, where $0\leq v \leq n$. For such $k$ following equation holds:
+ \[
+  \begin{split}
+    & \beta_{2n} \left( 2k \right) \overset{\text{D}\ref{defn-time_spent_positive_side}}{=} \pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \right)\\
+    & \ltp \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0 \right)\\
+    & \overset{*}{=} \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
+    & +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
+    & \gpr \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
+    & \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
+    & +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
+    & \pr \left( S_1, S_2, \ldots, S_{2r-1}>0, S_{2r}=0 \right)\\
+    & \overset{**}{=} \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_{2r}=0 \right)\\
+    & + \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r \Mid S_{2r}=0 \right)\\
+    &\overset{\text{L}\ref{lemma-temporal_homogeneity}}{=} \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k\right)\\
+    &+ \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r\right)\\
+    &=\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right).
+  \end{split}
+ \]
  Where $*$ comes from the disjoint decomposition of $[S_1, S_2, \ldots, S_{2r-1}\neq 0]=[S_1, S_2, \ldots, S_{2r-1}> 0]\cup[S_1, S_2, \ldots, S_{2r-1}<0]$ and $**$ comes from using the condition that up to time $2r$ the steps were on the positive/negative sides.
 
- Now let us proceed by induction. Case for $v=1$ is trivial because it implies the degenerate case. Let the statement be true for $v \leq n-1$, then $\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)\\
- \induk \suma[r][1][n] \h f_{2r} \alpha_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\alpha_{2n-2r}\left(2k-2r\right)\\
- \overset{\text{D}\ref{defn-return_origin}}{=} \suma[r][1][n] \h f_{2r} u_{2k}u_{2n-2r-2k}+\suma[r][1][n] \h f_{2r} u_{2k-2r}u_{2n-2k}\\
- = \h u_{2k} \suma[r][1][n] f_{2r} u_{2n-2r-2k}+ \h u_{2n-2k} \suma[r][1][n] f_{2r} u_{2k-2r}u_{2n-2k}\\
- \overset{\text{L}\ref{lemma-decomposition_f_n}} \h u_{2n-2k} u_{2k} +\h u_{2n-2k} u_{2k}=u_{2n-2k} u_{2k}\\
- \overset{\text{D}\ref{defn-return_origin}}{=}\alpha_{2n}\left(2k\right).$
+ Now let us proceed by induction. Case for $v=1$ is trivial because it implies the degenerate case. Let the statement be true for $v \leq n-1$, then
+ \[
+  \begin{split}
+    & \suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)\\
+    & \induk \suma[r][1][n] \h f_{2r} \alpha_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\alpha_{2n-2r}\left(2k-2r\right)\\
+    & \overset{\text{D}\ref{defn-return_origin}}{=} \suma[r][1][n] \h f_{2r} u_{2k}u_{2n-2r-2k}+\suma[r][1][n] \h f_{2r} u_{2k-2r}u_{2n-2k}\\
+    & = \h u_{2k} \suma[r][1][n] f_{2r} u_{2n-2r-2k}+ \h u_{2n-2k} \suma[r][1][n] f_{2r} u_{2k-2r}\\
+    & \overset{\text{L}\ref{lemma-decomposition_f_n}}{=} \h u_{2n-2k} u_{2k} +\h u_{2n-2k} u_{2k}=u_{2n-2k} u_{2k}
+   \overset{\text{D}\ref{defn-return_origin}}{=}\alpha_{2n}\left(2k\right).
+  \end{split}
+ \]
 \end{proof}
+\begin{comment}
 \begin{defn}[Change of a sign]
  \Lrw. We say that \intime $n$ occurred a change of sign if if $S_{n-1}\cdot S_{n+1}=-1$ in other words if $\left(S_{n-1}=+1 \land S_{n+1}=-1\right) \lor \left(S_{n-1}=-1 \land S_{n+1}=+1\right).$
  We shall denote the probability that up to \Time $n$ occurred $r$ changes of sign by $\xi_{r, n}$.
@@ -554,6 +570,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \begin{proof}
  Feller
 \end{proof}
+\end{comment}
 \section{Problem chapter 9 Feller-není dokončeno ani zkotrolováno}
 \begin{defn}[$\delta_n, \varepsilon_n^{r,\pm}$]\label{defn-delta_epsilon}
  \Lrws. $\delta_{n}\left( k\right)$ shall denote $\pr\left(\suma \indikator{S_i>0 \lor S_{i-1}>0}=k, S_n=0 \right)$,
@@ -608,7 +625,7 @@ $\{X_n\}_{n=1}^{\pinf}.$
 \end{proof}
 
 \begin{thm}[Equidistributional theorem-ALMOST COMPLETE OWN PROOF]
- \Lrws and $n \in \N$, then
+ \Lrws\ and $n \in \N$, then
  $\forall k,l \in \{0, 1, 2, \ldots, n \}:\delta_{2n}\left( 2k \right)=\delta_{2n}\left( 2l \right)=\frac{u_{2n}}{n+1}.$
 \end{thm}
 \begin{proof}
