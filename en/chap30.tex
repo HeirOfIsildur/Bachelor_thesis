@@ -1,0 +1,19 @@
+\chapter{Type I multi dim rand walk}
+\begin{defn}[Type I random walk in $\Z^m$]\label{defn-type_I}
+  Let $m \in \N$. Let $e_i$ denote \[\left(
+  \begin{array}{@{\,}ccccccccc@{\,}}
+  \undermat{i-1\vphantom{m-1}}{0 & 0 & \ldots&0 } & 1& \undermat{m-i}{0 & \ldots &0 &0 }\\
+  \end{array}
+  \right)^T\rm
+  \forall i \in \{1, 2, \ldots, m\}.\] OR: Let $e_i$ denote $i$-th vector of standard basis in $\R^m$. Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables with values in $\{ -e_1, +e_1, -e_2, +e_2, \ldots, -e_m, +e_m\}$.
+  That $\forall n \in \N$ satisfy the conditions $\pr\left(X_n=e_i \right)=p_i \in \left(0,1\right)$, $\pr\left(X_n=-e_i \right)=q_i \in \left(0,1\right)$ and $\suma[i][1][m] p_i+\suma[i][1][m]q_i=1$.
+  Let $\bf{p}=\begin{pmatrix}
+   p_1, p_2, \ldots, p_m
+ \end{pmatrix}^T$, $\bf{q}=\begin{pmatrix}
+   q_1, q_2, \ldots, q_m
+ \end{pmatrix}^T$ and $\bf{0}=\begin{pmatrix}
+    0, 0, \ldots, 0
+  \end{pmatrix}^T$. Let $S_0=\textbf{0}$ and $S_n=\suma X_i$. Then the \ce triplet \rw is called \emph{Type I random walk in $\mathbb{Z}^m$}.
+
+  If $\forall i \in \{1, 2, \ldots, m\}: p_i=q_i=\frac{1}{2m}$ we call the \ce element $\{S_n\}_{n=0}^\pinf$ \emph{Symmetric type I random walk in $\mathbb{Z}^m$}.
+\end{defn}
