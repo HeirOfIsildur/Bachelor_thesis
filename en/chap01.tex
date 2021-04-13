@@ -14,15 +14,15 @@
 \end{defn}
 
 \begin{rem}
- Very often we refer to $n$ as \Time, $X_i$ as the i-th step and $S_n$ as position of the walk \intime $n$ or after $n$ steps.
- While referring to simple random walk in $\Z$ we refer to $X_i=+1$ as i-th step was rightwards or more often upwards and to $X_i=-1$ as i-th step was leftwards or downwards. If it is not stated otherwise, we will always assume that $S_0=0.$
+ We often refer to $n$ as time, $X_i$ as the i-th step and $S_n$ is the position of the walk \intime $n$ or after $n$ steps.
+ While talking about simple random walk in $\Z$ we say the i-th step was rightwards or more often upwards if $X_i=+1$ and that the i-th step was leftwards or downwards if $X_i=-1.$ If it is not stated otherwise, we will always assume that $S_0=0.$
 \end{rem}
 
 \begin{rem}
-  The most important element in random walks is the probability of being in position $x$ \intime $n$.
-  In order to calculate such probability we have to firstly define what are even possible positions.
+  The most important characteristic of random walks is the probability of being in position $x$ \intime $n$.
+  In order to calculate such probability we have to firstly find possible positions.
 
-  For example it is impossible for the random walk to be in position $x$ \intime $n$ if $x>n$ simply because there have not been enough steps to make it up to $x$. It is also impossible (given the preposition that $S_0=0$) that after even number of steps the random walk is in odd-numbered position and vice versa. Therefore we define the set of possible positions.
+  For example, it is impossible for the random walk to be in position $x$ \intime $n$ if $x>n$ simply because there have not been enough steps to make it up to $x$. It is also impossible (given $S_0=0$) that after even number of steps the random walk is in odd-numbered position and vice versa. Therefore we define the set of possible positions.
 \end{rem}
 
 \begin{defn}[Set of possible positions]\label{defn-set_all_possible_values}
@@ -31,7 +31,7 @@
 
 
 \begin{thm}[Probability of position $x$ \intime $n$]\label{thm-probability_position_time}
- \Lrw\ and $A_n$ its set of possible positions.
+ \Lrw then for all $n \in \N$
  \[
  \pr \left( S_n=x \right) =
  \begin{cases}
@@ -42,21 +42,17 @@
 
 \end{thm}
 
-\begin{rem}
-  While having the definition of set of possible positions it is easy to prove the theorem by finding random variable with alternative distribution in each step. By summing them we get a variable with binomial distribution and then we simply modify the result to get desired probability.
-\end{rem}
-
 \begin{proof}
-  Consider random variables $\indikator{X_i=1}$, and
-   $\indikator{X_i=-1}$, and define new random variables
-   $R_n=\suma \indikator{X_i=1}, L_n=\suma \indikator{X_i=-1}$.  The
-   random variable $\indikator{X_i=1}$ can be interpreted as indicator
+  Consider random variables $X_{i}^{+}\dosad \indikator{X_i=1}$, and
+   $X_{i}^{-}\dosad \indikator{X_i=-1}$, and define new random variables
+   $R_n=\suma X_{i}^{+}, L_n=\suma X_{i}^{-}$.  The
+   random variable $X_{i}^{+}$ can be interpreted as indicator
    whether i-th step was rightwards. Then, $R_n$ is number of
    rightwards steps and $L_n$ is number of leftwards steps. We can
    easily see that $R_n+L_n=n$ and $R_n-L_n=S_n$.  Therefore we get by
    adding these two equations $R_n=\frac{S_n+n}{2}.$
 
-   Clearly, $\indikator{X_i=1}$ has alternative distribution with
+   Clearly, $X_{i}^{+}$ has alternative distribution with
    parameter $p$ (\textit{Alt(p)}). Hence, $R_n$ as a sum of \iid
    random variables with distribution \textit{Alt(p)} has binomial
    distribution with parameters $n$ and $p$ (\textit{Bi(n,p)}).
@@ -71,42 +67,43 @@
 \end{proof}
 
 \begin{rem}
-  Following are three simple lemmata that simplify many calculations in the rest of thesis. After proving them we can ask ourselves questions regarding the thesis aims.
+  Following are three simple lemmata that simplify many calculations in what follows. After proving them we can focus on the thesis goals.
 \end{rem}
 
 \begin{lemma}[Spatial homogeneity]\label{lemma-spatial_homogeneity}
-  \Lrw\ and $n \in \N, a,b,j \in \Z.$ Then for all $b \in \mathbb Z$
+  \Lrw\ and $n \in \N$ then for all $b,j \in \Z$
 \[
-  \pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_n=j+b \mid
-    S_0=a+b \right)
+  \pr \left( S_n=j \right) =\pr \left( S_n=j+b \mid
+    S_0=b \right)
 \]
 \end{lemma}
 
-\begin{proof} For any $j, a, b \in \mathbb Z$ holds
+\begin{proof} For any $j, b \in \mathbb Z$ holds
   \[
     \begin{split}
-      \pr \left( S_n=j \mid S_0=a \right) & =\pr \left( \suma X_i=j-a
+      \pr \left( S_n=j \right) & =\pr \left( \suma X_i=j
       \right)
-      =\pr \left( \suma X_i= \left( j+b \right) - \left( a+b \right) \right) \\
-      & =\pr \left( S_n=j+b \mid S_0=a+b \right).
+      =\pr \left( \suma X_i=  \left(j+b\right)  - b \right) \\
+      & =\pr \left( S_n=j+b \mid S_0=b \right).
     \end{split}
  \]
 \end{proof}
 
 
 \begin{lemma}[Temporal homogeneity]\label{lemma-temporal_homogeneity}
-  \Lrw\ and $n,m \in \N, a,j \in \Z.$ Then for all $m \in \mathbb N$
+  \Lrw\ and $n,m \in \N.$ Then for all $j \in \Z$
+
    \[
-     \pr \left( S_n=j \mid S_0=a \right) =\pr \left( S_{n+m}=j \mid
-       S_m=a \right)
+     \pr \left( S_n=j \right) =\pr \left( S_{n+m}=j \mid
+       S_m=0\right)
    \]
 \end{lemma}
-\begin{proof} For any $j, a \in \mathbb Z$ and $m \in \mathbb N$
+\begin{proof} For any $j \in \mathbb Z$ and $m \in \mathbb N$
   \[
     \begin{split}
-      \pr \left( S_n=j \mid S_0=a \right) & =\pr \left( \suma X_i=j-a\right)
-      =\pr \left( \suma[i][m+1][m+n]X_i=j-a \right)\\
-      & =\pr \left( S_{n+m}=j \mid S_m=a \right),
+      \pr \left( S_n=j  \right) & =\pr \left( \suma X_i=j\right)
+      =\pr \left( \suma[i][m+1][m+n]X_i=j \right)\\
+      & =\pr \left( S_{n+m}=j \mid S_m=0 \right),
     \end{split}
   \]
 where the second equality follows from identical distribution of
@@ -121,5 +118,5 @@ $\{X_n\}_{n=1}^{\pinf}.$
  \]
 \end{lemma}
 \begin{proof}
- Because $\{X_n\}_{n=1}^\pinf$ is a sequence of independent variables, once $S_m$ is known, then distribution of $S_n$ depends only on steps ~\\$X_{m+1}, X_{m+2}, \ldots X_n$ and therefore cannot depend on any information concerning values $X_1, X_2, \ldots, X_{m-1}$ and accordingly $S_1, S_2, \ldots, S_{m-1}.$
+ Because $\{X_n\}_{n=1}^\pinf$ is a sequence of independent variables, once $S_m$ is known, then the conditional distribution of $S_n$ depends only on steps ~\\$X_{m+1}, X_{m+2}, \ldots, X_n$ and therefore cannot depend on any information concerning values $X_1, X_2, \ldots, X_{m-1}$ and accordingly $S_1, S_2, \ldots, S_{m-1}.$
 \end{proof}

@@ -1,0 +1,287 @@
+%%%%%%%%
+% Ukazka beamer prezentace se zcela zakladnim nastavenim
+%%%%%%%%%%
+
+\documentclass{beamer}
+
+
+% Nastaveni vzhledu a barev:
+
+% Tema:
+\usetheme{Warsaw}
+% jine volby -> viz https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_theme.html
+
+ \usecolortheme{default}
+ % jine volby viz  -> https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_color.html
+% pripadne dalsi barvy lze za pouziti BeamerColor.sty
+
+
+\setbeamertemplate{navigation symbols}{} % pro odstraneni navigacnich symbolu
+
+% pokud chceme trochu jine fonty, pak lze zavolat dodatecne baliky:
+%\usepackage{times}
+%\usepackage[T1]{fontenc}
+% take viz https://deic-web.uab.cat/~iblanes/beamer_gallery/index_by_font.html
+
+% Pokud chceme nazvy tluste:
+%   \usefonttheme{structurebold}
+
+
+
+
+%%%%%%%%%%%
+% Standardni nastaveni - balicky, definice funkci atd.
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{graphicx} % chceme-li vkladat obrazky
+\DeclareMathOperator{\pr}{\mathsf{P}}
+\usepackage{xparse}
+\include{macros}
+
+% Autor, nazev atd
+
+\title[Occupation of a set time of
+random walks] {Occupation of a set time of
+random walks}
+% pokud je nazev prilis dlouhy, muzeme dat do [] kratsi verzi
+
+\author{Jan Janoušek}
+
+\date{\today}
+
+
+
+% Hlavni dokument:
+
+\begin{document}
+
+% uvodni slide
+\begin{frame}
+ \titlepage
+
+{\small
+\begin{center}
+Supervised by: doc. RNDr. Daniel Hlubinka, Ph.D.
+\end{center}
+}
+
+\end{frame}
+
+% slide s obsahem prezentace
+\begin{frame}{Overview}
+ \tableofcontents
+\end{frame}
+
+
+\section{Introduction}
+
+
+
+\subsection{Motivation}
+
+\begin{frame}{Motivation}
+ \begin{itemize}
+\item<1->{How long can you profit if you buy $n$ independent stocks}
+\item<2->{Gambler's ruin}
+\item<3->{Arcsine laws}
+\end{itemize}
+
+
+\end{frame}
+
+
+\begin{frame}{Terminology}
+\begin{itemize}
+\item<1-> Random walk with parameter $p$:  $\left(\{S_n\}_{\n \in \mathbb{N}_0} , p \right)$
+\item<2-> Return to the origin: $S_n=0$
+\item<3-> Probability of return to origin: $u_n\dosad \pr\left(S_n=0\right)$
+\item<4-> First return to the origin: $S_1, S_2, \ldots, S_{n-1}\neq 0, S_{2n}=0$
+\item<5-> Probability of the first return to the origin $f_n\dosad \pr\left(S_1, S_2, \ldots, S_{n-1}\neq 0, S_{2n}=0\right)$
+\item<6-> Probability of last return to origin at time $k$: $\beta_{n}\left( k\right)$
+\end{itemize}
+\end{frame}
+\subsection{Definition of a random walk}
+\begin{frame}{Definition of a random walk}
+\begin{block}{Definition}
+Let $\{X_n\}_{n=0}^\pinf$ be a sequence of  \iid $\{-1,1\}$-valued random variables, that for some $p\in(0,1)$ and for $n\in \mathbb{N}$ satisfy $\pr \left( X_n=1 \right) =p$ and $\pr \left( X_n=-1 \right) =1-p=:q$.
+
+Let $S_0=0$ and $S_n=\suma[i][1][n]X_i$. We call the pair $ \left( \{S_n\}_{n=0}^\pinf, p \right) $ \emph{Simple~random walk in $\mathbb{Z}$}.
+\end{block}
+\begin{itemize}
+\item<2->Three possible outcomes:
+\begin{enumerate}
+\item<3-> $p = q$ the walk stays approximately around origin (symmetric)
+\item<4-> $p > q$ the walk shifts rightwards/upwards for $n \to \pinf$
+\item<5-> $p < q$ the walk shifts leftwards/downwards for $n \to \pinf$
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+\section{Basic properties of random walk}
+\subsection{Probability of position at time}
+\begin{frame}{Probability of position at time}
+\begin{block}{Theorem}
+   \Lrw.
+\[
+\pr \left( S_n=x \right) =
+\begin{cases}
+\binom{n}{\frac{n+x}{2}}p^{\frac{n+x}{2}}q^{\frac{n-x}{2}} & \text{for $x \in A_n$ },\\
+0, & \text{for $x \not\in A_n$},
+\end{cases}
+\]
+where $A_n=\{z \in \Z; \abs{z}\leq n, \frac{z+n}{2}\in \Z \}$
+\end{block}
+\end{frame}
+
+\begin{frame}{Probability of return to origin}
+\begin{block}{Theorem}
+   \Lrw.
+\[
+\pr \left( S_n=0 \right) =
+\begin{cases}
+\binom{n}{\frac{n}{2}}p^{\frac{n}{2}}q^{\frac{n}{2}} & \text{for $n$ even },\\
+0, & \text{for $n$ odd},
+\end{cases}
+\]
+\end{block}
+\end{frame}
+\subsection{Probability of no return to origin}
+\begin{frame}{Probability of no return to origin}
+\begin{block}{Theorem}
+   \Lrws.
+\[
+\begin{split}
+\pr \left( S_n=0 \right) &=\pr \left( S_1, S_2, \ldots, S_{2n}\neq 0 \right) =\\
+& =2\pr \left( S_1, S_2, \ldots, S_{2n}> 0 \right)=\pr \left( S_1, S_2, \ldots, S_{2n}\geq 0 \right)
+\end{split}
+\]
+\end{block}
+\end{frame}
+
+\subsection{Arcsine law for last visits}
+\begin{frame}{Arcsine law for last visits}
+
+\begin{block}{Theorem}
+\Lrws. Then the probability that the last return to the origin up to time $2n$ happened at time $2k$ is
+\[
+\alpha_{2n} \left( 2k \right)=\pr\left( S_{2k}=0\right)\pr\left( S_{2n-2k}=0\right).
+\]
+\end{block}
+
+\begin{itemize}
+\item<1->\[
+   \pr\left( S_{2k}=0\right)=\binom{2k}{k}2^{-2k}
+   =\frac{\left( 2k\right)!}{\left(k!\right)^2}2^{-2k}
+   \sim \frac{\left( \frac{2k}{e}\right)^{2k}\sqrt{4\pi k}}{\left(\left( \frac{k}{e}\right)^{k}\sqrt{2\pi k}\right)^2}2^{-2k}
+\]
+\item<2->\[
+=\frac{\left( \frac{k}{e}\right)^{2k}2^{2k}2\sqrt{\pi k}}{\left( \frac{k}{e}\right)^{2k}2\pi k}2^{-2k}=\frac{1}{\sqrt{\pi k}}
+\]
+\end{itemize}
+\end{frame}
+\begin{frame}{Arcsine law for last visits-continuing}
+\begin{itemize}
+   \item<1-> following same procedure we get that $\pr\left(S_{2n-2k}=0\right)\sim \frac{1}{\sqrt{\pi \left(n-k\right)}}$
+   \item<2-> therefore $\beta_{2n}\left( 2k\right)=\frac{1}{\pi \sqrt{k\left(n-k\right)}}=\frac{1}{\pi \sqrt{\frac{k}{n}\left(1-\frac{k}{n}\right)}}$
+   \item<3-> therefore we get the distribution function:
+   \[
+   F(nx)=\pr(X\leq nx)=\int_0^{nx}\frac{1}{\pi \sqrt{y(n-y)}} dy=\frac{2}{\pi}\arcsin{\sqrt{x}}
+   \]
+\end{itemize}
+
+\end{frame}
+
+\subsection{Arcsine law for sojourn times}
+\begin{frame}{Arcsine law for sojourn times}
+
+\begin{block}{Theorem}
+\Lrws. Then the probability that up to time $2n$ the walk spends $2k$ steps on the positive side is
+\[
+\alpha_{2n} \left( 2k \right)=\pr\left( S_{2n}=0\right)\pr\left( S_{2n-2k}=0\right).
+\]
+\end{block}
+\end{frame}
+
+\section{Multi dimensional random walk}
+\renewcommand{\rw}{$\left( \{\boldsymbol{S_n}\}_{n=0}^\pinf, \boldsymbol{p}\right)$}
+\subsection{Type I random walk}
+\begin{frame}{Type I random walk-definition}
+\begin{block}{Definition}
+  Let $m \in \N$. Let $e_i$ denote $i$-th vector of standard basis in $\R^m$. Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random variables with values in $\{ -e_1, +e_1, -e_2, +e_2, \ldots, -e_m, +e_m\}$.
+ That $\forall n \in \N$ satisfy the conditions $\pr\left(X_n=e_i \right)=p_i \in \left(0,1\right)$, $\pr\left(X_n=-e_i \right)=q_i \in \left(0,1\right)$ and $\suma[i][1][m] p_i+\suma[i][1][m]q_i=1$.
+ Let $\boldsymbol{p}=\begin{pmatrix}
+  p_1, p_2, \ldots, p_m
+\end{pmatrix}^T$, $\boldsymbol{q}=\begin{pmatrix}
+  q_1, q_2, \ldots, q_m
+\end{pmatrix}^T$ and $\boldsymbol{0}=\begin{pmatrix}
+   0, 0, \ldots, 0
+ \end{pmatrix}^T$. Let $S_0=\boldsymbol{0}$ and $S_n=\suma X_i$. Then the triplet $\left(\{\boldsymbol{S_n}\}_{n=0}^\pinf, \boldsymbol{p}, \boldsymbol{q} \right)$ is called \emph{Type I random walk in $\mathbb{Z}^m$}.
+\end{block}
+\end{frame}
+\subsection{Type II random walk}
+\begin{frame}{Type II random walk-definition}
+\begin{block}{Definition}
+  Let $m \in \N$. $\forall n \in \N$, let $\boldsymbol{X_n}=\begin{pmatrix} \x[1] & \x[2]& \ldots, \x[m]\end{pmatrix}^T$, where $\{\x[i]\}_{i=1}^{m}$ are $\forall n \in \N$ independent.
+
+ Let $\forall i \in \jm \ \x[i]$ be a $\{-1,+1\}$-valued random variable with probabilities $\pr \left(\x[i]=+1\right)=p_i \in \left(0,1\right)$ and $\pr \left(\x[i]=-1\right)=1-p_i=:q_i \in  \left(0,1 \right) \forall n \in \N.$
+
+ Let $\{X_n\}_{n=0}^\pinf$ be a sequence of \iid random vectors. Let $\boldsymbol{S_0}=\boldsymbol{0}$ and $\forall n \in \N: \boldsymbol{S_n}=\suma \boldsymbol{X_i}$ and $\boldsymbol{p}=\begin{pmatrix}
+  p_1, p_2, \ldots, p_m
+\end{pmatrix}^T$. Then the pair $\left(\{\mathbf{S_n}\}_{n=0}^\pinf, \boldsymbol{p} \right)$ is called \emph{Type II random walk in $\mathbb{Z}^m$}.
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Type II random walk probability of position at time}
+\begin{block}{Theorem}
+  \Lrwm. Let $\boldsymbol{y}=\begin{pmatrix}
+  y_1, y_2, \ldots, y_m
+ \end{pmatrix}^T\in \Z^m.$ Then following equation stands:
+ \[
+ \pr \left( S_n=\boldsymbol{y} \right) =
+ \prod_{i=1}^{m}\binom{n}{\frac{y_i+n}{2}}{p_i}^{\frac{n+y_i}{2}}{q_i}^{\frac{n-y_i}{2}}\]
+ if $\forall i \in \jm:y_i\in A_n, 0$ otherwise.
+
+\end{block}
+\end{frame}
+
+\begin{frame}{Type II random walk probability of position at time}
+\begin{block}{Theorem}
+  Let $\{\mathbf{\mathbf{S_n}}\}_{n=0}^\pinf$ be a Symmetric type II random walk in $\Z^m$. Let $C$ be a closed orthant in $Z^m$.
+  \[ \pr \left(\boldsymbol{S_n}\in C\right)=\left( \pr\left(S_{2n}=0\right)\right)^m=\left( 2^{-2n}\binom{2n}{n}\right)^m.\]
+
+\end{block}
+\end{frame}
+
+
+
+
+
+\section{Coclusion}
+
+\begin{frame}{Current plan}
+Things I have done so far
+\begin{itemize}
+\item<1-> Understood (mainly symmetric) one dimensional random walk
+\item<2-> Defined and proven basic multidimensional theorems
+\end{itemize}
+
+\medskip
+\visible<4->{
+\begin{block}{My goals}
+\begin{itemize}
+\item Find probabilites of occupation times of given sets in more dimensions
+\item Implement in R/Python for simulation study
+\item Statistical tests
+\end{itemize}
+\end{block}}
+
+\end{frame}
+
+\begin{frame}
+   \Huge{\centerline{Thank for your attention}}
+\end{frame}
+\end{document}

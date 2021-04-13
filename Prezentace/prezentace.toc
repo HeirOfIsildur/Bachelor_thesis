@@ -1,0 +1,11 @@
+\babel@toc {czech}{}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Motivation}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Momentové podmínky}{12}{0}{1}
+\beamer@sectionintoc {2}{Odvození zobecněné metody momentů}{17}{0}{2}
+\beamer@subsectionintoc {2}{1}{Metoda momentů}{17}{0}{2}
+\beamer@subsectionintoc {2}{2}{Zobecněná metoda momentů}{23}{0}{2}
+\beamer@sectionintoc {3}{Vlastnosti a implementace zobecněné metody momentů}{30}{0}{3}
+\beamer@subsectionintoc {3}{1}{Vlastnosti}{30}{0}{3}
+\beamer@subsectionintoc {3}{2}{Implementace}{41}{0}{3}
+\beamer@sectionintoc {4}{Závěr}{48}{0}{4}
