@@ -1,6 +1,6 @@
 \chapter{Own proofs}
 \begin{lemma}\label{lemma-f_2n=frac}
-  \Lrws. The following equation holds:
+  \Lrws, then
  \[
  f_{2n}=\frac{1}{2n-1}u_{2n}
  \]
@@ -13,7 +13,7 @@
     =\frac{2n}{2n-1}u_{2n}.
   \end{split}
  \]
- Therefore
+ Therefore,
  \[
  f_{2n} \overset{\text{L}\ref{thm-f_2n}}{=} u_{2n-2}-u_{2n}=u_{2n} \left( \frac{2n}{2n-1}-1 \right)
  =u_{2n}\frac{1}{2n-1}.
@@ -31,8 +31,9 @@
   \[
     \begin{split}
       & \pr \left(S_{2n}=0\right)
-      \ltp \suma[r][1][n] \pr \left(S_{2n}=0,S_1, S,2, \ldots, S_{2r-1}\neq 0, S_{2r}=0\right)\\
-      & \gpr \suma[r][1][n] \pr \left(S_{2n}=0 \Mid S_1, S,2, \ldots, S_{2r-1}\neq 0 S_{2r}=0\right)\pr \left(S_1, S,2, \ldots, S_{2r-1}\neq 0, S_{2r}=0\right)\\
+      \ltp \suma[r][1][n] \pr \left(S_{2n}=0,S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0\right)\\
+      & \gpr \suma[r][1][n] \pr \left(S_{2n}=0 \Mid S_1, S_2, \ldots, S_{2r-1}\neq 0 S_{2r}=0\right)\cdot\\
+      &\pr \left(S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0\right)\\
       & \overset{\text{L}\ref{lemma-markov_property} \text{,D}\ref{defn-return_origin}}{=}\suma[r][1][n] \pr \left(S_{2n}=0 \Mid S_{2r}=0\right) f_{2r}
       \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\suma[r][1][n]
       \pr \left(S_{2n-2r}=0\right) f_{2r}\overset{\text{D}\ref{defn-return_origin}}{=}
@@ -44,7 +45,7 @@
  \Lrws\ $k,n \in \N, k\leq n$.
  The probability that up to \Time $2n$ the last return to origin occurred \intime $2k$ is given by
 \[
-\pr\left( S_{2n}=0\right)\pr\left( S_{2n-2k}=0\right).
+\pr\left( S_{2k}=0\right)\pr\left( S_{2n-2k}=0\right).
 \]
 \end{thm}
 \begin{proof}
@@ -61,7 +62,7 @@
 \begin{defn}[Time spend on the positive and negative sides]\label{defn-time_spent_positive_side}
 
  \Lrw. We say that \emph{the walk spent $\tau$ time units of $n$ on the positive side} if $\suma \indikator{S_i>0 \lor S_{i-1}>0}=\tau.$
- Let $\beta_{n} \left( \tau \right) $ denote the probability of such an event.
+ Let $T_n$ denote $\suma \indikator{S_i>0 \lor S_{i-1}>0}$ and $\beta_{n} \left( \tau \right)$ denote $\pr\left(T_n=\tau \right)$.
  Similarly, we say that \emph{the walk spent $\zeta$ time units of $n$ on the negative side} if
  $\suma\indikator{S_i<0 \lor S_{i-1}<0}=\zeta.$
 \end{defn}
@@ -74,38 +75,46 @@
  \]
 \end{thm}
 \begin{proof}%My own proof
- Firstly let us start with degenerate cases.
+ First let us start with degenerate cases.
  \[
     \beta_{2n} \left( 2n \right)
-    =\pr \left( \suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2n \right)
+    =\pr \left( T_{2n}=2n \right)
     \overset{\text{L}\ref{lemma-probability_above_or_on}}{=}\pr \left( S_1, S_2, \ldots, S_{2n}\geq 0 \right) =u_{2n}.
  \]
  By symmetry $\beta_{2n} \left( 0 \right) =\beta_{2n} \left( 2n \right).$
 
- Let $1 \leq k \leq v-1$, where $0\leq v \leq n$. For such $k$ following equation holds:
+ Let us fix $v \leq n$ and let $1 \leq k \leq v-1$, then the following equation holds:
  \[
   \begin{split}
-    & \beta_{2n} \left( 2k \right) \overset{\text{D}\ref{defn-time_spent_positive_side}}{=} \pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \right)\\
-    & \ltp \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0 \right)\\
-    & \overset{*}{=} \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
-    & +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
-    & \gpr \suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
+    & \beta_{2n} \left( 2k \right) \overset{\text{D}\ref{defn-time_spent_positive_side}}{=} \pr \left( T_{2n}=2k \right)
+     \ltp \suma[r][1][n]\pr \left( T_{2n}=2k, S_1, S_2, \ldots, S_{2r-1}\neq 0, S_{2r}=0 \right)\\
+    & = \suma[r][1][n]\pr \left( T_{2n}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
+    & +\suma[r][1][n]\pr \left( T_{2n}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
+    & \gpr \suma[r][1][n]\pr \left( T_{2n}=2k \Mid S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right) \cdot \\
     & \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
-    & +\suma[r][1][n]\pr \left( \suma \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
+    & +\suma[r][1][n]\pr \left( T_{2n}=2k \Mid S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right) \cdot \\
     & \pr \left( S_1, S_2, \ldots, S_{2r-1}>0, S_{2r}=0 \right)\\
-    & \overset{**}{=} \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k \Mid S_{2r}=0 \right)\\
-    & + \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r \Mid S_{2r}=0 \right)\\
-    &\overset{\text{L}\ref{lemma-temporal_homogeneity}}{=} \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k\right)\\
-    &+ \suma[r][1][n] \h f_{2r} \pr \left( \suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r\right)\\
-    &=\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right).
+    & \overset{\text{L}\ref{lemma-markov_property}}{=} \suma[r][1][n]\pr \left( T_{2n}=2k \Mid S_{2r}=0 \right)
+    \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
+    & +\suma[r][1][n]\pr \left( T_{2n}=2k \Mid S_{2r}=0 \right)
+    \pr \left( S_1, S_2, \ldots, S_{2r-1}>0, S_{2r}=0 \right)\\
+    & \overset{*}{=} \suma[r][1][n] \h f_{2r} \pr \left( T_{2n}-T_{2r}=2k \Mid S_{2r}=0 \right)\\
+    & + \suma[r][1][n] \h f_{2r} \pr \left( T_{2n}-T_{2r}=2k-2r \Mid S_{2r}=0 \right)\\
+    &\overset{\text{L}\ref{lemma-temporal_homogeneity}}{=} \suma[r][1][n] \h f_{2r} \pr \left( T_{2n-2r}=2k\right)
+    + \suma[r][1][n] \h f_{2r} \pr \left( T_{2n-2r}=2k-2r\right)\\
+    &=\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k \right) +\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right).
   \end{split}
  \]
- Where $*$ comes from the disjoint decomposition of $[S_1, S_2, \ldots, S_{2r-1}\neq 0]=[S_1, S_2, \ldots, S_{2r-1}> 0]\cup[S_1, S_2, \ldots, S_{2r-1}<0]$ and $**$ comes from using the condition that up to time $2r$ the steps were on the positive/negative sides.
+ The third equation comes from the disjoint decomposition of
+ \[
+ [S_1, S_2, \ldots, S_{2r-1}\neq 0]=[S_1, S_2, \ldots, S_{2r-1}> 0]\cup[S_1, S_2, \ldots, S_{2r-1}<0]
+ \]
+  and the equation marked $*$ comes from using the condition that up to time $2r$ the steps were on the positive/negative sides.
 
- Now let us proceed by induction. Case for $v=1$ is trivial because it implies the degenerate case. Let the statement be true for $v \leq n-1$, then
+ Now let us proceed by induction. Case for $v=1$ is trivial because it implies the degenerate case. Let the statement be true for all $v \leq n-1$, then
  \[
   \begin{split}
-    & \suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)\\
+    &\beta_{2n}\left(2k\right)=\suma[r][1][n] \h f_{2r} \beta_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\beta_{2n-2r}\left(2k-2r\right)\\
     & \induk \suma[r][1][n] \h f_{2r} \alpha_{2n-2r}\left(2k\right)+\suma[r][1][n] \h f_{2r}\alpha_{2n-2r}\left(2k-2r\right)\\
     & \overset{\text{D}\ref{defn-return_origin}}{=} \suma[r][1][n] \h f_{2r} u_{2k}u_{2n-2r-2k}+\suma[r][1][n] \h f_{2r} u_{2k-2r}u_{2n-2k}\\
     & = \h u_{2k} \suma[r][1][n] f_{2r} u_{2n-2r-2k}+ \h u_{2n-2k} \suma[r][1][n] f_{2r} u_{2k-2r}\\
@@ -126,6 +135,41 @@
  Feller
 \end{proof}
 \end{comment}
+\begin{defn}[Time spent above $a$]
+  \Lrw. We say that \emph{the walk spent $z$ time units up to time $n$ in the interval $\left[a,\pinf \right)$} if $\suma \indikator{S_i>a \lor S_{i-1}>a}=z.$
+  Let $T_n\left(a\right)$ denote $\suma \indikator{S_i>a \lor S_{i-1}>a}.$
+\end{defn}
+\begin{thm}[Probability questioned \todo]
+  \Lrws, let $a>0.$ Then
+  \[
+  \pr \left(T_{2n} \left( 2a \right) = 2z \right)=
+  \]
+\end{thm}
+\begin{proof}
+  \[
+    \begin{split}
+      &\pr \left(T_{2n}\left(2a\right)=2z\right)\\
+      &\gpr \suma \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\pr\left(S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\\
+      &\overset{\text{D}\ref{defn-new_maximum}}{=}\suma \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\cdot f_{2a}\left(2k\right).
+    \end{split}
+  \]
+  Now let us look at $\left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right).$
+  It is also true that
+  $T_{2n}\left(2a\right)=T_{2n-2i}\left(2a\right)+T_{2i}\left(2a\right),$
+  but given the condition $S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a$
+  we now that $T_{2i}\left(2a\right)=0$ therefore,
+  \[
+    \begin{split}
+        & \left(T_{2n-2i}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)
+        \overset{\text{L}\ref{lemma-markov_property}}{=} \left(T_{2n-2i}\left(2a\right)=2z \Mid S_{2i}=2a\right)\\
+        & \overset{\text{L}\ref{lemma-spatial_homogeneity}}{=} \left(T_{2n-2i}=2z \Mid S_{2i}=0\right)
+    \end{split}
+  \]
+  \[
+  \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)
+  \]
+\end{proof}
+
 \section{Problem chapter 9 Feller-není dokončeno, zkontrolováno ani upraveno do čitelnější podoby}
 \begin{defn}[$\delta_n, \varepsilon_n^{r,\pm}$]\label{defn-delta_epsilon}
  \Lrws.
@@ -159,10 +203,10 @@
  =\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0, S_{2n}=0 \right)\\
  \gpr \pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n}=0 \mid S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
  \pr \left( S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
- \overset{*}{=} \pr\left(\suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r, S_{2n}=0 \Mid S_{2r}=0 \right)
+ \overset{*}{=} \pr\left(T_{2n}-T_{2r}=2k-2r, S_{2n}=0 \Mid S_{2r}=0 \right)
  \pr \left( S_1, S_2, \ldots, S_{2r-1}> 0, S_{2r}=0 \right)\\
- \overset{**}{=}\pr\left(\suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r, S_{2n}=0 \Mid S_{2r}=0 \right) \h f_2r\\
-  \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=} \pr\left(\suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k-2r, S_{2n-2r}=0\right) \h f_{2r}\\
+ \overset{**}{=}\pr\left(T_{2n}-T_{2r}=2k-2r, S_{2n}=0 \Mid S_{2r}=0 \right) \h f_2r\\
+  \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=} \pr\left(T_{2n-2r}=2k-2r, S_{2n-2r}=0\right) \h f_{2r}\\
  \overset{\text{D}\ref{defn-delta_epsilon}}{=}\delta_{2n-2r} \left( 2k-2r \right)\h f_{2r}.$
 
  Where $*$ comes from Lemma (\ref{lemma-markov_property}) and using the condition.
@@ -173,10 +217,10 @@
  =\pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0, S_{2n}=0 \right)\\
  = \pr\left(\suma[i][1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n}=0 \mid S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
  \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
- = \pr\left(\suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n}=0 \Mid S_{2r}=0 \right)
+ = \pr\left(T_{2n}-T_{2r}=2k, S_{2n}=0 \Mid S_{2r}=0 \right)
  \pr \left( S_1, S_2, \ldots, S_{2r-1}< 0, S_{2r}=0 \right)\\
- =\pr\left(\suma[i][2r+1][2n] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n}=0 \Mid S_{2r}=0 \right) \h f_2r\\
- =\pr\left(\suma[i][1][2n-2r] \indikator{S_i>0 \lor S_{i-1}>0}=2k, S_{2n-2r}=0\right) \h f_{2r}\\
+ =\pr\left(T_{2n}-T_{2r}=2k, S_{2n}=0 \Mid S_{2r}=0 \right) \h f_2r\\
+ =\pr\left(T_{2n-2r}=2k, S_{2n-2r}=0\right) \h f_{2r}\\
  =\delta_{2n-2r} \left( 2k\right)\h f_{2r}.$
 
  Therefore $\delta_{2n} \left(2k \right)

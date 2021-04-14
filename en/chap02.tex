@@ -1,6 +1,9 @@
 \chapter{Number of paths+maxima}
 \begin{rem}
-  Once having stated basic definitions we may ask questions about occupation times of a set. Let $a>0$. How many steps up to time $n$ does our walk spend above $a$ (in interval $[a,\pinf)$)? Similarly how many steps does the walk spend in interval $[-a,\pinf)?$ We are going to answer these questions in following XXX\todo.
+  Once having stated basic definitions we may ask questions about occupation times of a set.
+  Let $a>0$. How many steps up to time $n$ does our walk spend above $a$ (in interval $[a,\pinf)$)?
+  Similarly how many steps does the walk spend in interval $[-a,\pinf)?$
+  We are going to answer these questions in following \todo:section/chapter/subchapter.
 \end{rem}
 
 \begin{rem}
@@ -79,7 +82,7 @@
  \]
 \end{proof}
  \begin{rem}
-   The name \textit{Ballot theorem} comes from the question: In a ballot where candidate $A$ receives $p$ votes and candidate $B$ receives $q$ votes with $p > q$, what is the probability that $A$ had been strictly ahead of B throughout the whole count?
+   The name \textit{Ballot theorem} comes from the question: In a ballot where candidate $A$ receives $p$ votes and candidate $B$ receives $q$ votes with $p > q$, what is the probability that $A$ had been strictly ahead of B throughout the count?
 
    Answer to this question can be derived from the previous theorem. In our case $b=p-q$ and $n=p+q.$
  \end{rem}
@@ -87,12 +90,12 @@
   \Lrw. $M_n^+\dosad \max \{S_i, i\in \jn\}$ is called \emph{maximum of random walk \rw} \emph{up to time $n$} and $M_n^-\dosad \min \{S_i, i\in \jn\}$ is called \emph{minimum of random walk \rw\ up to time $n.$} $M_n=\max\{M_n^+, -M_n^-\}$ is called \emph{absolute maximum of random walk \rw\ up to time $n.$}
 \end{defn}
 \begin{thm}[Probability of maximum up to \Time $n$]\label{thm-probability_maximum_upto_time}
- \Lrw.
+ \Lrw. Let $r \in \N, b \in \Z then$
  \[
  \pr \left(  M_n^+\geq r, S_n=b \right) =
  \begin{cases}
- \pr \left( S_n=b \right) & \text{for $b \geq r$ },\\
- \pr \left( S_n=2r-b \right) \left( \frac{q}{p} \right) ^{r-b}, & \text{for $otherwise$}.
+ \pr \left( S_n=b \right) & \text{if $b \geq r$ },\\
+ \pr \left( S_n=2r-b \right) \left( \frac{q}{p} \right) ^{r-b}, & \text{otherwise}.
  \end{cases}
  \]
 \end{thm}
@@ -101,8 +104,8 @@
  therefore $[ M_n^+ \geq r] \subset [S_n=b]$ hence we get $\pr \left(  M_n^+\geq r, S_n=b \right) =
  \pr \left( S_n=b \right)$.
 
- Now let $r\geq 1, b<r$. $N_n^r \left( 0,b \right) $ stands for number of paths from point $ \left( 0,0 \right) $ to point $ \left( n,b \right) $ which reach up to $r$.
- Let $k \in \jn$ denote the first \Time tha walk reaches $r$. By reflection principle (\ref{thm-reflection_principle}), we can reflect the segment from $\left(k,r\right)$ to $ \left( n,b \right) $ in the axis:$y=r$.
+ Now let $r\geq 1, b<r$. $N_n^r \left( 0,b \right) $ stands for number of paths from point $ \left( 0,0 \right) $ to point $ \left( n,b \right) $ which reach at least to $r$.
+ Let $k \in \jn$ denote the first \Time the walk reaches $r$. By reflection principle (\ref{thm-reflection_principle}), we can reflect the segment from $\left(k,r\right)$ to $ \left( n,b \right) $ in the axis $y=r$.
  Therefore we now have path from $ \left( 0,0 \right) $ to $ \left( n,2r-b \right) $
  and we get that
  \[
@@ -115,6 +118,7 @@
 \end{proof}
 
 \begin{defn}[Walk reaching new maximum at particular \Time]\label{defn-new_maximum}
+  \todo-newline
  \Lrw\ $n,b\in \N$. We say that \emph{the walk reached new maximum $b$ \intime $n$} if $M_{n-1}^+=S_{n-1}=b-1, S_n=b$. We denote such probability by $f_b \left( n \right).$
 \end{defn}
 \begin{thm}[Probability of reaching new maximum $b$ \intime $n$]\label{thm-probability_new_maximum}
@@ -126,10 +130,10 @@
 \begin{proof}
   \[
   \begin{split}
-    f_b & = \pr \left( M_{n-1}=S_{n-1}=b-1, S_n=b \right)
+    & f_b\left(n\right)  = \pr \left( M_{n-1}=S_{n-1}=b-1, S_n=b \right)
     =\pr \left(M_{n-1}=S_{n-1}=b-1, X_n=+1\right)\\
     & =p\pr \left( M_{n-1}=S_{n-1}=b-1 \right)\\
-    & \overset{*}{=}p \left( \pr \left( M_{n-1}\geq b-1, S_{n-1}=b-1 \right) -\pr \left( M_{n-1}\geq b, S_{n-1}=b-1 \right) \right) \\
+    & =p \left( \pr \left( M_{n-1}\geq b-1, S_{n-1}=b-1 \right) -\pr \left( M_{n-1}\geq b, S_{n-1}=b-1 \right) \right) \\
     & \overset{\text{T}\ref{thm-probability_maximum_upto_time}}{=}p \left( \pr \left( S_{n-1}=b-1 \right) -\frac{q}{p}\pr \left( S_{n-1}=b+1 \right) \right) \\
     & =p\pr \left( S_{n-1}=b-1 \right) -q \pr \left( S_{n-1}=b+1 \right) \\
     & =\binom{n-1}{\frac{n}{2}+\frac{b}{2}-1}p^{\frac{n}{2}+\frac{b}{2}}q^{\frac{n}{2}-\frac{b}{2}}-\binom{n-1}{\frac{n}{2}+\frac{b}{2}}
@@ -141,7 +145,7 @@
     =\frac{b}{n}\pr \left( S_n=b \right).
      \end{split}
   \]
- Where $*$ comes from the fact that the event $[M_{n-1}\geq b-1]$ can be split into two disjoint events:
+ The fourth equation follows from the fact that the event $[M_{n-1}\geq b-1]$ can be split into two disjoint events:
  $[M_{n-1}\geq b-1]=[M_{n-1}\geq b]\cup [M_{n-1}=b-1].$
 
  Hence: $\pr\left(M_{n-1}=b-1\right)=\pr\left(M_{n-1}\geq b-1\right)-\pr\left(M_{n-1}\geq b\right).$ The same applies for the probability $\pr\left(M_{n-1}=b-1, S_{n-1}=b-1\right)

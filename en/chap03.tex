@@ -1,9 +1,9 @@
-\chapter{Returns to origin}
+\chapter{Returns to the origin}
 \begin{rem}
-  Following is a simple identity concerning binomial numbers stated as a lemma. The lemma is stated in the thesis because we did not find it obvious.
+  Following is quite a tricky identity concerning binomial numbers which may not be obvious to the reader at first sight. Therefore we have decided to state it as a lemma.
 \end{rem}
 \begin{lemma}[Binomial identity]\label{lemma-binom_identity}
- Let $n,k \in \N, n>k$ then following equation holds
+ Let $n,k \in \N, n>k$ then
  \[
  \binom{n-1}{k}-\binom{n-1}{k-1}=\frac{n-2k}{n}\binom{n}{k}
  \]
@@ -33,19 +33,19 @@
   \begin{split}
     & \pr \left(S_1, S_2, \ldots, S_{2n}\neq 0 \right)
     \ltp \suma[i][-n][n] \pr \left( S_1 , S_2, \ldots, S_{2n}\neq 0, S_{2n}=2i \right)\\
-    & \overset{*}{=}2\suma \pr \left( S_1 , S_2, \ldots, S_{2n}\neq 0, S_{2n}=2i \right)
-     \overset{\text{T}\ref{thm-ballot_theorem}}{=}2\suma \frac{2i}{2n}\pr \left( S_{2n}=2i \right) =2\suma \frac{2i}{2n}\binom{2n}{n-i}2^{-2n}\\
-    & \overset{\text{L}\ref{lemma-binom_identity}}{=} 2\cdot 2^{-2n}\suma \left( \binom{2n-1}{n-i}-\binom{2n-1}{n-i-1} \right) \overset{**}{=}2\cdot 2^{-2n}\binom{2n-1}{n}\\
+    & =2\suma \pr \left( S_1 , S_2, \ldots, S_{2n}\neq 0, S_{2n}=2i \right)\\
+    & \overset{\text{T}\ref{thm-ballot_theorem}}{=}2\suma \frac{2i}{2n}\pr \left( S_{2n}=2i \right) =2\suma \frac{2i}{2n}\binom{2n}{n-i}2^{-2n}\\
+    & \overset{\text{L}\ref{lemma-binom_identity}}{=} 2\cdot 2^{-2n}\suma \left( \binom{2n-1}{n-i}-\binom{2n-1}{n-i-1} \right) =2\cdot 2^{-2n}\binom{2n-1}{n}\\
     &=2^{-2n}\frac{2n}{n}\binom{2n-1}{n-1}
   =2^{-2n}\binom{2n}{n}=\pr \left( S_{2n}=0 \right).
   \end{split}
   \]
-  Where $*$ comes from the fact that the random walk is symmetric and $**$ comes from the fact that the positive part of $i$-th term cancels against the negative part of $i+1$-st term.
+  The second equation follows from the fact that the random walk is symmetric and the sixth equation follows from the fact that it is a telescopic sum.
 \end{proof}
 
 
 
-\begin{lemma}[Probability of being strictly above origin]\label{lemma-probability_strictly_above}
+\begin{lemma}[Probability of positive path]\label{lemma-probability_strictly_above}
  \Lrws.
  \[
  \pr \left( S_1, S_2, \ldots, S_{2n}>0 \right)
@@ -58,30 +58,28 @@
  \ltp \suma[r][1][n]\pr \left( S_1, S_2, \ldots, S_{2n}> 0, S_{2n}=2r \right).
  \]
  The $r$-th term follows equation:
-
-  \[
-   \begin{split}
-     & \pr \left( S_1, S_2, \ldots, S_{2n}> 0, S_{2n}=2r \right)
-     =\pr \left( X_1=1, S_2, \ldots, S_{2n}> 0, S_{2n}=2r \right)\\& =\h \pr \left( S_2, S_3, \ldots, S_{2n}> 0, S_{2n}=2r \Mid S_1=1 \right)\\
-     & \overset{*}{=}\h \left( \pr \left( S_{2n}=2r\Mid S_1=1 \right) -\pr \left(S_2\cdot S_3 \cdot \ldots \cdot S_{2n-1}=0, S_{2n}=2r \Mid S_1=1\right) \right)\\
-     & =\h \left( 2^{-\left(2n-1\right)}N_{2n-1} \left( 1,2r \right) -2^{-\left(2n-1\right)}N_{2n-1}^0 \left( 1,2r \right) \right)\\
-     & =\h 2^{-\left(2n-1\right)} \left( N_{2n-1} \left( 1,2r \right) -N_{2n-1}^0 \left( 1,2r \right) \right) \\
-     & \overset{\text{T}\ref{thm-reflection_principle}}{=}\h 2^{-\left(2n-1\right} \left( N_{2n-1} \left( 1,2r \right) -N_{2n-1} \left( -1,2r \right) \right)\\
-     & =\h 2^{-\left(2n-1\right)} \left( \binom{2n-1}{n+r-1}-\binom{2n-1}{n+r} \right).
-    \end{split}
-  \]
-
-     Where $*$ comes from the disjoint decomposition:
+ \[
+ \begin{split}
+   & \pr \left( S_1, S_2, \ldots, S_{2n}> 0, S_{2n}=2r \right)
+   =\pr \left( X_1=1, S_2, \ldots, S_{2n}> 0, S_{2n}=2r \right)\\
+   & =\h \pr \left( S_2, S_3, \ldots, S_{2n}> 0, S_{2n}=2r \Mid S_1=1 \right)\\
+   & =\h \left( \pr \left( S_{2n}=2r\Mid S_1=1 \right) -\pr \left(S_2\cdot S_3 \cdot \ldots \cdot S_{2n-1}=0, S_{2n}=2r \Mid S_1=1\right) \right)\\
+   & =\h \left( 2^{-\left(2n-1\right)}N_{2n-1} \left( 1,2r \right) -2^{-\left(2n-1\right)}N_{2n-1}^0 \left( 1,2r \right) \right)\\
+   & =\h 2^{-\left(2n-1\right)} \left( N_{2n-1} \left( 1,2r \right) -N_{2n-1}^0 \left( 1,2r \right) \right) \\
+   & \overset{\text{T}\ref{thm-reflection_principle}}{=}\h 2^{-\left(2n-1\right)} \left( N_{2n-1} \left( 1,2r \right) -N_{2n-1} \left( -1,2r \right) \right)\\
+   & =\h 2^{-\left(2n-1\right)} \left( \binom{2n-1}{n+r-1}-\binom{2n-1}{n+r} \right)
+           \end{split}
+ \]
+     The first equation comes from the disjoint decomposition:
      \[
      [S_{2n}=2r]=[S_1\cdot S_2 \cdot \ldots \cdot S_{2n-1} \neq 0, S_{2n}=2r]\cup[S_1\cdot S_2 \cdot \ldots \cdot S_{2n-1}=0, S_{2n}=2r].
      \]
-
  Because of the fact that the negative parts of $r$-th terms cancel against the positive parts of
- $\left( r+1 \right) $-st terms and the sum reduces to just
+ $\left( r+1 \right) $-st terms and the sum reduces to
  \[
   \begin{split}
    & \h 2^{-\left(2n-1\right)}\binom{2n-1}{n}
-   =\h 2 2^{-2n}\binom{2n-1}{n}
+   =\h 2^{-2n}\cdot 2\binom{2n-1}{n}
    =\h 2^{-2n}\frac{2n}{n}\binom{2n-1}{n} \\
    &=\h 2^{-2n}\binom{2n}{n}
    =\h \pr \left( S_{2n}=0 \right).
@@ -96,7 +94,7 @@
  \]
 \end{thm}
 \begin{proof}
- The event $[S_1, S_2, \ldots, S_{2n}\neq 0]$ can be split into two disjoint events:
+ The event $[S_1, S_2, \ldots, S_{2n}\neq 0]$ is the union of two disjoint events:
  $[S_1, S_2, \ldots, S_{2n}\neq 0]=[S_1, S_2, \ldots, S_{2n} < 0]\cup [S_1, S_2, \ldots, S_{2n} > 0]$.
 
  By previous theorem (L\ref{thm-no_return=return}) we get that the probability
@@ -104,8 +102,8 @@
  Because the the events are disjoint we can sum their probabilities and we get the desired result.
 \end{proof}
 \end{comment}
-\begin{lemma}[Probability of being above or in origin]\label{lemma-probability_above_or_on}
-  \Lrws. The following equation holds:
+\begin{lemma}[Probability of non-negative path]\label{lemma-probability_above_or_on}
+  \Lrws, then
  \[
  \pr \left( S_1, S_2, \ldots, S_{2n} \geq 0 \right)
  =\pr \left( S_{2n}=0 \right)
@@ -116,54 +114,63 @@
   \begin{split}
     & \h \pr\left(S_{2n}=0 \right)\overset{\text{L}\ref{lemma-probability_strictly_above}}{=}\pr \left( S_1, S_2, \ldots, S_{2n}>0 \right)
     =\pr \left( X_1=1, S_2, S_3 \ldots, S_{2n}\geq 1 \right)\\
-    & \ltp \pr \left(S_2, S_3 \ldots, S_{2n}\geq 1 \Mid S_1=1\right) \pr \left(X_1=1 \right)
-    =\h \pr \left( S_2, S_3 \ldots, S_{2n}\geq 1 \mid S_1=1 \right)\\
+    & \ltp \pr \left(S_2, S_3 \ldots, S_{2n}\geq 1 \Mid S_1=1\right) \pr \left(X_1=1 \right)\\
+    &=\h \pr \left( S_2, S_3 \ldots, S_{2n}\geq 1 \mid S_1=1 \right)\\
     & \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\h \pr \left( S_1, S_2 \ldots, S_{2n-1}\geq 1 \mid S_0=1 \right)
     \overset{\text{L}\ref{lemma-spatial_homogeneity}}{=}\h \pr \left( S_1, S_2 \ldots, S_{2n-1}\geq 0 \right)\\
     & =\h \pr \left( S_1, S_2 \ldots, S_{2n}\geq 0 \right).
   \end{split}
  \]
- Where the last equation comes from the fact that $[S_1, S_2 \ldots, S_{2n-1}\geq 0 ]=[S_1, S_2 \ldots, S_{2n-1}\geq 1]=[S_1, S_2 \ldots, S_{2n} \geq 0 ].$
+ The last equation comes from the fact that
+ \[
+ [S_1, S_2 \ldots, S_{2n-1}\geq 0 ]=[S_1, S_2 \ldots, S_{2n-1}\geq 1]=[S_1, S_2 \ldots, S_{2n} \geq 0 ].
+ \]
 \end{proof}
 
 \begin{thm}[Probability of position $x$ \intime $n$ without returning to origin]\label{thm-probability_position_b_at_time_n_without_return_origin}
- \Lrw\ and $x \in \Z$ then the following equation holds.
+ \Lrw\ and $x \in \Z$ then
  \[\pr \left( S_1, S_2, \ldots, S_{n}\neq 0, S_n=x \right)
  =\frac{\abs{x}}{n}\pr \left( S_n=x \right).
  \]
 \end{thm}
 \begin{proof}
  Let us without loss of generality assume that $x>0$. In that case, first step has to be rightwards $\left(X_1=+1\right).$ Now we have path from point $ \left( 1,1 \right) $ to point $ \left( n,x \right) $ that does not return to origin.
- By Ballot theorem \ref{thm-ballot_theorem} there are $\frac{x}{n}N_n \left( 0,x \right) $ such paths. Each path consists of $\frac{n+x}{2}$ rightwards steps and $\frac{n-x}{2}$ leftwards steps.
+ By Ballot theorem (\ref{thm-ballot_theorem}) there are $\frac{x}{n}N_n \left( 0,x \right) $ such paths. Each path consists of $\frac{n+x}{2}$ rightwards steps and $\frac{n-x}{2}$ leftwards steps.
  Therefore $\pr \left( S_1\cdot S_2 \cdot, \ldots, S_n\neq 0, S_n=x \right)
  =\frac{x}{n}N_n \left( 0,x \right) p^{\frac{n+x}{2}}q^{\frac{n-x}{2}}
  =\frac{x}{n}\pr \left( S_n=x \right) $. Case $x<0$ is identical.
 \end{proof}
-
-\begin{thm}\label{thm-return_origin_upto_time}
+\begin{comment}
+\begin{thm}[Asine law for last return to the origin]\label{thm-return_origin_upto_time}
  \Lrws. The probability that the last return to origin up to \Time $2n$ occurred \intime $2k$
- is $\pr \left( S_{2k}=0 \right) \pr \left( S_{2n-2k}=0 \right) $.
+ is
+ \[
+ \pr \left( S_{2k}=0 \right) \pr \left( S_{2n-2k}=0 \right).
+ \]
 \end{thm}
 \begin{proof}
  \[
   \begin{split}
-     & \pr \left( S_{2k+1}, S_{2k+2}, \ldots, S_{2n} \neq 0, S_{2k}=0\right)
-     \gpr  \pr \left( S_{2k+1}, S_{2k+2}, \ldots, S_{2n}\neq 0 \mid S_{2k}=0 \right)\pr \left( S_{2k}=0 \right)\\
+     & \pr \left( S_{2k+1}, S_{2k+2}, \ldots, S_{2n} \neq 0, S_{2k}=0\right)\\
+     & \gpr  \pr \left( S_{2k+1}, S_{2k+2}, \ldots, S_{2n}\neq 0 \mid S_{2k}=0 \right)\pr \left( S_{2k}=0 \right)\\
      & \overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\pr \left( S_{2k}=0 \right) \pr \left( S_{1}, S_{2}, \ldots, S_{2n-2k}\neq 0 \right)
      \overset{\text{T}\ref{thm-no_return=return}}{=}\pr \left( S_{2k}=0 \right) \pr \left( S_{2n-2k}=0 \right).
   \end{split}
  \]
 \end{proof}
+\end{comment}
 
 \begin{thm}[First return as difference of returns]\label{thm-f_2n}
-  \Lrws. The following equation holds:
+  \Lrws, then
  \[
  f_{2n}=u_{2n-2}-u_{2n}
  \]
 \end{thm}
 \begin{proof}
- The event $[S_1, S_2, \ldots S_{2n-1}\neq 0]$ can be split into two disjoint events:
- $[S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}=0] \cup [S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}\neq 0]$.
+ The event $[S_1, S_2, \ldots S_{2n-1}\neq 0]$ is the union of two disjoint events:
+ \[
+ [S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}=0] \cup [S_1, S_2, \ldots S_{2n-1}\neq 0, S_{2n}\neq 0].
+ \]
  Hence we get
 \[
   \begin{split}
