@@ -135,39 +135,93 @@
  Feller
 \end{proof}
 \end{comment}
-\begin{defn}[Time spent above $a$]
+\begin{defn}[Time spent above $a$]\label{defn-time_spent_above}
   \Lrw. We say that \emph{the walk spent $z$ time units up to time $n$ in the interval $\left[a,\pinf \right)$} if $\suma \indikator{S_i>a \lor S_{i-1}>a}=z.$
   Let $T_n\left(a\right)$ denote $\suma \indikator{S_i>a \lor S_{i-1}>a}.$
 \end{defn}
-\begin{thm}[Probability questioned \todo]
-  \Lrws, let $a>0.$ Then
+\begin{thm}[Probability of spending $2z$ time units in intrerval $[2a,\pinf)$]
+  \Lrws, let $a\in \Z,$ then
   \[
-  \pr \left(T_{2n} \left( 2a \right) = 2z \right)=
+  \pr \left(T_{2n} \left( 2a \right)=2z \right)=
+  \begin{cases}
+    \suma \binom{2\left(n-i-z\right)}{n-i-z}\binom{2z}{z}\frac{a}{i}\binom{2i}{i+a}2^{-2n} & \text{if $a>0$}\\
+    \binom{2n-2k}{n-k}\binom{2k}{k}2^{-2n} & \text{if $a=0$}\\
+    \suma \binom{2\left(n-z\right)}{n-z}\binom{2\left(z-i\right)}{z-i}\frac{a}{i}\binom{2i}{i+a}2^{-2n} & \text{if  $a<0$}\\
+  \end{cases}
   \]
 \end{thm}
 \begin{proof}
+  The case $a=0$ was described in Theorem \ref{thm-arcsine_sojourn_times}.
+
+  Case $a>0$ follows:
   \[
     \begin{split}
       &\pr \left(T_{2n}\left(2a\right)=2z\right)\\
-      &\gpr \suma \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\pr\left(S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\\
-      &\overset{\text{D}\ref{defn-new_maximum}}{=}\suma \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\cdot f_{2a}\left(2k\right).
+      &\gpr \suma \pr \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\cdot\\
+      & \pr\left(S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\\
+      &=\suma \pr\left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\cdot f_{2a}\left(2i\right).\\
     \end{split}
   \]
-  Now let us look at $\left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right).$
-  It is also true that
-  $T_{2n}\left(2a\right)=T_{2n-2i}\left(2a\right)+T_{2i}\left(2a\right),$
-  but given the condition $S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a$
-  we now that $T_{2i}\left(2a\right)=0$ therefore,
+  The second equation follows Definition \ref{defn-new_maximum}. Because of the symmetry, the definition can be applied also for reaching new minimum.
+  Now let us have a look at $\pr \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right).$
+  In case $a>0$ we have
   \[
     \begin{split}
-        & \left(T_{2n-2i}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)
-        \overset{\text{L}\ref{lemma-markov_property}}{=} \left(T_{2n-2i}\left(2a\right)=2z \Mid S_{2i}=2a\right)\\
-        & \overset{\text{L}\ref{lemma-spatial_homogeneity}}{=} \left(T_{2n-2i}=2z \Mid S_{2i}=0\right)
+        &\pr \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\\
+        &\overset{\text{D}\ref{defn-time_spent_above}}{=}\pr \left(\suma[k][1][2n] \indikator{S_k>2a \lor S_{k-1}>2a}=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\\
+        &=\pr \left(\suma[k][1][2i] \indikator{S_k>2a \lor S_{k-1}>2a}+\suma[k][2i+1][2n] \indikator{S_k>2a \lor S_{k-1}>2a}=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\\
+        &=\pr \left(\suma[k][2i+1][2n] \indikator{S_k>2a \lor S_{k-1}>2a}=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\\
+        &\overset{\text{L}\ref{lemma-markov_property}}{=}\pr \left(\suma[k][2i+1][2n] \indikator{S_k>2a \lor S_{k-1}>2a}=2z \Mid S_{2i}=2a\right)\\
+        &\overset{\text{L}\ref{lemma-spatial_homogeneity}}{=}\pr \left(\suma[k][2i+1][2n] \indikator{S_k>0 \lor S_{k-1}>0}=2z \Mid S_{2i}=0\right)\\
+        &\overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\pr \left(\suma[k][1][2n-2i] \indikator{S_k>0 \lor S_{k-1}>0}=2z\right)
+        \overset{\text{D}\ref{defn-time_spent_above}}{=}\pr \left(T_{2n-2i}=2z\right).\\
     \end{split}
   \]
+  The third equation follows the fact that given the condition $S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a$ then $\suma[k][1][2i] \indikator{S_k>2a \lor S_{k-1}>2a}=0.$
+
+  Overall we have that:
   \[
-  \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)
-  \]
+    \begin{split}
+      &\pr \left(T_{2n}\left(2a\right)=2z\right)=\suma\pr \left(T_{2n-2i}=2z\right) f_{2a}\left(2i\right)\\
+      &\overset{\text{T}\ref{thm-probability_new_maximum}}{=}\suma\pr \left(T_{2n-2i}=2z\right)\frac{a}{i}\pr \left(S_{2i}=2a\right)\\
+      &\overset{\text{T}\ref{thm-probability_position_time}}{=}\suma u_{2n-2i-2z} u_{2z}\frac{a}{i}\pr \left(S_{2i}=2a\right)\\
+      &\overset{\text{T}\ref{defn-return_origin}}{=}\suma \binom{2\left(n-i-z\right)}{n-i-z}2^{-2n+2i+2z} \binom{2z}{z}2^{-2z} \frac{a}{i} \binom{2i}{i+a}2^{-2i}\\
+      &=\suma \binom{2\left(n-i-z\right)}{n-i-z}\binom{2z}{z}\frac{a}{i}\binom{2i}{i+a}2^{-2n}.\\
+    \end{split}
+    \]
+    The case $a<0$ follows:
+    \[
+      \begin{split}
+        &\pr \left(T_{2n}\left(2a\right)=2z\right)\\
+        &\gpr \suma \pr \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}>2a, S_{2i}=2a\right)\cdot\\
+        & \pr\left(S_1,S_2, \ldots, S_{2i-1}>2a, S_{2i}=2a\right)\\
+        &=\suma \pr\left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}>2a, S_{2i}=2a\right)\cdot f_{2a}\left(2i\right).\\
+      \end{split}
+    \]
+    $\pr\left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}>2a, S_{2i}=2a\right)$ follows:
+    \[
+      \begin{split}
+          &\pr \left(T_{2n}\left(2a\right)=2z \Mid S_1,S_2, \ldots, S_{2i-1}>2a, S_{2i}=2a\right)\\
+          &\overset{\text{D}\ref{defn-time_spent_above}}{=}\pr \left(\suma[k][1][2n] \indikator{S_k>2a \lor S_{k-1}>2a}=2z \Mid S_1,S_2, \ldots, S_{2i-1}>2a, S_{2i}=2a\right)\\
+          &=\pr \left(\suma[k][1][2i] \indikator{S_k>2a \lor S_{k-1}>2a}+\suma[k][2i+1][2n] \indikator{S_k>2a \lor S_{k-1}>2a}=2z \Mid S_1,S_2, \ldots, S_{2i-1}>2a, S_{2i}=2a\right)\\
+          &=\pr \left(2i+\suma[k][2i+1][2n] \indikator{S_k>2a \lor S_{k-1}>2a}=2z \Mid S_1,S_2, \ldots, S_{2i-1}<2a, S_{2i}=2a\right)\\
+          &\overset{\text{L}\ref{lemma-markov_property}}{=}\pr \left(\suma[k][2i+1][2n] \indikator{S_k>2a \lor S_{k-1}>2a}=2z-2i \Mid S_{2i}=2a\right)\\
+          &\overset{\text{L}\ref{lemma-spatial_homogeneity}}{=}\pr \left(\suma[k][2i+1][2n] \indikator{S_k>0 \lor S_{k-1}>0}=2z-2i \Mid S_{2i}=0\right)\\
+          &\overset{\text{L}\ref{lemma-temporal_homogeneity}}{=}\pr \left(\suma[k][1][2n-2i] \indikator{S_k>0 \lor S_{k-1}>0}=2z-2i\right)
+          \overset{\text{D}\ref{defn-time_spent_above}}{=}\pr \left(T_{2n-2i}=2z-2i\right).\\
+      \end{split}
+    \]
+    The third equation follows the fact that given the condition $S_1,S_2, \ldots, S_{2i-1}>2a, S_{2i}=2a$ then $\suma[k][1][2i] \indikator{S_k>2a \lor S_{k-1}>2a}=2i.$
+    Therefore overall we have
+    \[
+      \begin{split}
+        &\pr \left(T_{2n}\left(2a\right)=2z\right)=\suma\pr \left(T_{2n-2i}=2z-2i\right) f_{2a}\left(2i\right)\\
+        &\overset{\text{T}\ref{thm-probability_new_maximum}}{=}\suma\pr \left(T_{2n-2i}=2z-2i\right)\frac{a}{i}\pr \left(S_{2i}=2a\right)\\
+        &\overset{\text{T}\ref{thm-probability_position_time}}{=}\suma u_{2n-2z} u_{2z-2i}\frac{a}{i}\pr \left(S_{2i}=2a\right)\\
+        &\overset{\text{T}\ref{defn-return_origin}}{=}\suma \binom{2\left(n-z\right)}{n-z}2^{-2n+2z} \binom{2\left(z-i\right)}{z-i}2^{-2z+2i} \frac{a}{i} \binom{2i}{i+a}2^{-2i}\\
+        &=\suma \binom{2\left(n-z\right)}{n-z}\binom{2\left(z-i\right)}{z-i}\frac{a}{i}\binom{2i}{i+a}2^{-2n}.\\
+      \end{split}
+      \]
 \end{proof}
 
 \section{Problem chapter 9 Feller-není dokončeno, zkontrolováno ani upraveno do čitelnější podoby}
